@@ -1,5 +1,6 @@
 'use client';
 
+import DOMPurify from 'dompurify';
 import React, { useEffect, useState } from 'react';
 
 interface DiagramSlideProps {
@@ -8,12 +9,27 @@ interface DiagramSlideProps {
 	caption?: string;
 }
 
+function isTrustedSvgSrc(src: string): boolean {
+	try {
+		const url = new URL(src, window.location.origin);
+		return url.origin === window.location.origin;
+	} catch {
+		return false;
+	}
+}
+
 const DiagramSlide: React.FC<DiagramSlideProps> = ({ src, alt, caption }) => {
 	const [svgContent, setSvgContent] = useState<string | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
+		if (!isTrustedSvgSrc(src)) {
+			setError('Diagram source must be same-origin');
+			setIsLoading(false);
+			return;
+		}
+
 		setIsLoading(true);
 		fetch(src)
 			.then((res) => {
@@ -37,8 +53,8 @@ const DiagramSlide: React.FC<DiagramSlideProps> = ({ src, alt, caption }) => {
 	if (error) {
 		return (
 			<div className="bg-cursor-accent-red-bg border border-cursor-border-emphasis rounded p-4 text-cursor-accent-red text-center">
-				<p>Error loading diagram: {error}</p>
-				<p className="text-sm mt-2">Path: {src}</p>
+				<p>Error loading diagram</p>
+				<p className="text-sm mt-2">{error}</p>
 			</div>
 		);
 	}
@@ -52,13 +68,17 @@ const DiagramSlide: React.FC<DiagramSlideProps> = ({ src, alt, caption }) => {
 		'<svg$1 width="100%" height="auto" style="max-width:100%;display:block;">',
 	);
 
+	const sanitizedSvg = DOMPurify.sanitize(modifiedSvg, {
+		USE_PROFILES: { svg: true, svgFilters: true },
+	});
+
 	return (
 		<div className="flex flex-col items-center justify-center space-y-6">
 			<div className="w-full max-w-4xl">
 				<div
 					className="w-full border border-cursor-border rounded-md overflow-hidden"
 					style={{ minHeight: '300px' }}
-					dangerouslySetInnerHTML={{ __html: modifiedSvg }}
+					dangerouslySetInnerHTML={{ __html: sanitizedSvg }}
 				/>
 			</div>
 			{caption ? <p className="text-cursor-text-muted text-lg text-center max-w-3xl">{caption}</p> : null}

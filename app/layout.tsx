@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 import { Analytics } from '@vercel/analytics/react';
 import { I18nProvider } from '@/lib/i18n';
 import { siteConfig } from '@/content/site.config';
@@ -14,12 +15,15 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+	const headersList = await headers();
+	const nonce = headersList.get('x-nonce') ?? '';
+
 	return (
 		<html lang={siteConfig.defaultLocale}>
 			<body className="antialiased">
 				<I18nProvider>{children}</I18nProvider>
-				<Analytics />
+				<Analytics nonce={nonce} />
 			</body>
 		</html>
 	);

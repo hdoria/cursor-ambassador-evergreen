@@ -1,5 +1,6 @@
 'use client';
 
+import DOMPurify from 'dompurify';
 import React from 'react';
 import { Slide } from '@/modules/slides/types';
 
@@ -9,7 +10,8 @@ interface SlideContentProps {
 
 const SlideContent: React.FC<SlideContentProps> = ({ slide }) => {
 	if (typeof slide.content === 'string') {
-		return <div dangerouslySetInnerHTML={{ __html: slide.content }} />;
+		const sanitized = DOMPurify.sanitize(slide.content);
+		return <div dangerouslySetInnerHTML={{ __html: sanitized }} />;
 	}
 
 	return <>{slide.content}</>;

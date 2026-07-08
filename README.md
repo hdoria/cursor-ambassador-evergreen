@@ -1,6 +1,6 @@
 # Cursor Ambassador Evergreen Template
 
-![Cursor Ambassador Banner](public/images/readme-banner.png)
+![Cursor Ambassador Banner](public/images/readme-banner.jpg)
 
 This repository is a configurable Next.js template for Cursor Ambassador community sites.
 

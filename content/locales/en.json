@@ -7,6 +7,9 @@
 		"upcomingEvents": "Upcoming Events",
 		"upcomingHeading": "What's Next",
 		"register": "Register",
+		"comingSoon": "Coming soon",
+		"lumaCalendar": "Live calendar",
+		"lumaCalendarHeading": "All upcoming dates",
 		"pastEvents": "Past Events",
 		"pastEventsHeading": "Event Recaps",
 		"attendees": "{count} attendees",
@@ -30,7 +33,7 @@
 		"defaultDescription": "A practical, hands-on workshop series for builders who want to learn Cursor with real workflows."
 	},
 	"recap": {
-		"title": "Event recap",
+		"backToEvents": "Back to events",
 		"speakers": "Speakers",
 		"projects": "Projects showcased",
 		"highlights": "Community feedback",
@@ -67,7 +70,6 @@
 	},
 	"worldEvents": {
 		"title": "Cafe Cursor around the world",
-		"subtitle": "Same day, different timezones",
 		"description": "Cursor users are building together worldwide. Even with timezone differences, we are one community."
 	}
 }

@@ -12,6 +12,7 @@ import Partners from '@/components/Partners';
 const Footer: React.FC = () => {
 	const { t } = useI18n();
 	const nextEvent = upcomingEvents[0];
+	const joinUrl = nextEvent?.lumaUrl ?? siteConfig.lumaUrl;
 
 	return (
 		<motion.footer
@@ -24,26 +25,16 @@ const Footer: React.FC = () => {
 			<Partners />
 
 			<div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start">
-				{/* Branding */}
 				<div>
 					<div className="flex items-center gap-2 mb-2">
-						<Image
-							src="/cursor-logo.svg"
-							alt="Cursor"
-							width={90}
-							height={24}
-							className="h-5 w-auto"
-						/>
-						<span className="text-cursor-text-muted text-sm">
-							{siteConfig.communityNameLocal}
-						</span>
+						<Image src="/cursor-logo.svg" alt="Cursor" width={90} height={24} className="h-5 w-auto" />
+						<span className="text-cursor-text-muted text-sm">{siteConfig.communityNameLocal}</span>
 					</div>
 					<p className="text-cursor-text-muted text-sm leading-relaxed">
 						{siteConfig.footerTagline || t('footer.madeWith')}
 					</p>
 				</div>
 
-				{/* Community links */}
 				<div className="flex flex-col gap-2.5">
 					<a
 						href={siteConfig.lumaUrl}
@@ -74,19 +65,16 @@ const Footer: React.FC = () => {
 					</a>
 				</div>
 
-				{/* CTA */}
 				<div className="md:text-right">
-					{nextEvent?.lumaUrl && (
-						<a
-							href={nextEvent.lumaUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#f54e00] text-white rounded-md hover:bg-[#e04500] transition-colors text-sm font-medium"
-						>
-							{t('footer.joinNext')}
-							<ExternalLink className="w-3.5 h-3.5" />
-						</a>
-					)}
+					<a
+						href={joinUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center gap-2 px-5 py-2.5 bg-cursor-accent-orange text-white rounded-md hover:bg-cursor-accent-orange-hover transition-colors text-sm font-medium"
+					>
+						{t('footer.joinNext')}
+						<ExternalLink className="w-3.5 h-3.5" />
+					</a>
 				</div>
 			</div>
 

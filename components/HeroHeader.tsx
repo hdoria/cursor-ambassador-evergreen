@@ -3,9 +3,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import BentoGrid from '@/components/BentoGrid';
-import { headerPhotos } from '@/content/header-photos';
+import { HeroBentoPhotos } from '@/lib/types';
 
-const HeroHeader: React.FC = () => {
+type HeroHeaderProps = {
+	photos: HeroBentoPhotos;
+};
+
+const HeroHeader: React.FC<HeroHeaderProps> = ({ photos }) => {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -17,7 +21,14 @@ const HeroHeader: React.FC = () => {
 				WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent)',
 			}}
 		>
-			<BentoGrid photos={headerPhotos} cols={4} rows={4} mobileCols={2} mobileRows={4} />
+			<BentoGrid
+				desktopPhotos={photos.desktop}
+				mobilePhotos={photos.mobile}
+				cols={4}
+				rows={4}
+				mobileCols={2}
+				mobileRows={4}
+			/>
 		</motion.div>
 	);
 };

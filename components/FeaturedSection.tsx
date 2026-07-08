@@ -17,7 +17,7 @@ const FeaturedSection: React.FC = () => {
 			transition={{ duration: 0.5, delay: 0.2 }}
 			className="mb-16"
 		>
-			<div className="relative overflow-hidden bg-[#1B1913] border border-cursor-border rounded-md p-6 transition-all duration-300 hover:border-cursor-accent-blue/40 hover:shadow-[0_0_30px_rgba(168,180,200,0.08)] group">
+			<div className="relative overflow-hidden bg-cursor-surface border border-cursor-border rounded-md p-6 transition-all duration-300 hover:border-cursor-accent-blue/40 hover:shadow-[0_0_30px_rgba(168,180,200,0.08)] group">
 				{/* Glow backdrop */}
 				<div className="pointer-events-none absolute -inset-px rounded-md bg-[radial-gradient(ellipse_at_top_right,rgba(168,180,200,0.08),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 				<p className="text-xs uppercase tracking-wider text-cursor-text-muted mb-4">{t('home.featured')}</p>
@@ -31,7 +31,7 @@ const FeaturedSection: React.FC = () => {
 
 				<Link
 					href={featuredResource.href}
-					className="inline-flex items-center gap-2 px-4 py-2 bg-cursor-text text-cursor-bg rounded-md hover:bg-cursor-text-muted transition-colors text-sm font-medium"
+					className="inline-flex items-center gap-2 px-4 py-2 bg-cursor-accent-orange text-white rounded-md hover:bg-cursor-accent-orange-hover transition-colors text-sm font-medium"
 				>
 					{featuredResource.ctaLabel || t('home.viewSlides')}
 					<ArrowRight className="w-4 h-4" />

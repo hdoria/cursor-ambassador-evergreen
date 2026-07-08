@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Image from 'next/image';
-import { getPhotos } from '@/lib/photos';
+import { worldEventPhotos } from '@/content/world-events';
 
 const WorldEventsCarousel: React.FC = () => {
-	const photos = getPhotos();
+	const photos = worldEventPhotos;
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isFullscreen, setIsFullscreen] = useState(false);
 

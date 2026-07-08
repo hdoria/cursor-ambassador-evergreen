@@ -1,36 +1,41 @@
-import React from "react";
-import { siteConfig } from "@/content/site.config";
+'use client';
 
-type LumaCalendarProps = {
-  className?: string;
-  height?: number;
+import React from 'react';
+import { useI18n } from '@/lib/i18n';
+import { siteConfig } from '@/content/site.config';
+
+type LumaCalendarSectionProps = {
+	className?: string;
+	height?: number;
 };
 
-const LumaCalendar: React.FC<LumaCalendarProps> = ({
-  className,
-  height = 450,
-}) => {
-  if (!siteConfig.lumaCalendarEmbedUrl) {
-    return null;
-  }
+const LumaCalendarSection: React.FC<LumaCalendarSectionProps> = ({ className, height = 450 }) => {
+	const { t } = useI18n();
 
-  return (
-    <iframe
-      src={siteConfig.lumaCalendarEmbedUrl}
-      width="100%"
-      height={height}
-      allowFullScreen
-      aria-hidden="false"
-      tabIndex={0}
-      title={`${siteConfig.communityName} — upcoming events calendar`}
-      className={className}
-      style={{
-        border: "1px solid #bfcbda88",
-        borderRadius: "4px",
-        display: "block",
-      }}
-    />
-  );
+	if (!siteConfig.sections.lumaCalendar || !siteConfig.lumaCalendarEmbedUrl) {
+		return null;
+	}
+
+	return (
+		<section className={`mb-16 scroll-mt-20 ${className ?? ''}`}>
+			<p className="text-xs uppercase tracking-wider text-cursor-text-muted font-medium mb-2">
+				{t('home.lumaCalendar')}
+			</p>
+			<h2 className="text-2xl md:text-3xl font-bold text-cursor-text mb-6">{t('home.lumaCalendarHeading')}</h2>
+			<div className="rounded-md border border-cursor-border overflow-hidden bg-cursor-surface">
+				<iframe
+					src={siteConfig.lumaCalendarEmbedUrl}
+					width="100%"
+					height={height}
+					loading="lazy"
+					allowFullScreen
+					tabIndex={0}
+					title={`${siteConfig.communityName} — upcoming events calendar`}
+					className="block w-full"
+				/>
+			</div>
+		</section>
+	);
 };
 
-export default LumaCalendar;
+export default LumaCalendarSection;

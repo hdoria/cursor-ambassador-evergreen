@@ -2,11 +2,17 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import EventRecap from '@/components/EventRecap';
 import JsonLd from '@/components/JsonLd';
+import Navbar from '@/components/Navbar';
+import RecapBackLink from '@/components/RecapBackLink';
 import { recapsBySlug } from '@/content/recaps';
 import { siteConfig } from '@/content/site.config';
 
 interface RecapPageProps {
 	params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+	return Object.keys(recapsBySlug).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: RecapPageProps): Promise<Metadata> {
@@ -69,7 +75,9 @@ export default async function RecapPage({ params }: RecapPageProps) {
 	return (
 		<main className="min-h-screen bg-cursor-bg text-cursor-text">
 			{jsonLd && <JsonLd data={jsonLd} />}
+			<Navbar />
 			<div className="max-w-5xl mx-auto px-6 py-12">
+				<RecapBackLink />
 				<EventRecap recap={recap} />
 			</div>
 		</main>

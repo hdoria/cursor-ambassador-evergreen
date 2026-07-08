@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import { Analytics } from '@vercel/analytics/react';
-import { I18nProvider } from '@/lib/i18n';
+import Providers from '@/components/Providers';
 import { siteConfig } from '@/content/site.config';
 import './globals.css';
 
@@ -22,8 +22,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<html lang={siteConfig.defaultLocale}>
 			<body className="antialiased">
-				<I18nProvider>{children}</I18nProvider>
-				<Analytics nonce={nonce} />
+				<Providers>{children}</Providers>
+				<Analytics {...({ nonce } as React.ComponentProps<typeof Analytics>)} />
 			</body>
 		</html>
 	);

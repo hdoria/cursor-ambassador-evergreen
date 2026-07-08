@@ -4,7 +4,7 @@ export interface CursorEvent {
 	id: string;
 	title: string;
 	titleLocal?: string;
-	date: string;
+	date?: string;
 	displayDate: string;
 	attendees?: number;
 	location: string;
@@ -45,9 +45,12 @@ export interface FeaturedResource {
 	ctaLabel: string;
 }
 
-export interface HeaderPhoto {
+export interface BentoImage {
 	src: string;
 	alt: string;
+}
+
+export interface BentoSlot {
 	row: number;
 	col: number;
 	rowSpan?: number;
@@ -59,6 +62,13 @@ export interface HeaderPhoto {
 		colSpan?: number;
 	};
 	mobileHidden?: boolean;
+}
+
+export interface HeaderPhoto extends BentoSlot, BentoImage {}
+
+export interface HeroBentoPhotos {
+	desktop: HeaderPhoto[];
+	mobile: HeaderPhoto[];
 }
 
 export interface GalleryPhoto {
@@ -115,4 +125,10 @@ export interface WorldEventPhoto {
 	location: string;
 	date?: string;
 	alt: string;
+}
+
+export interface SiteSections {
+	matchmaking?: boolean;
+	photoDisclaimer?: boolean;
+	lumaCalendar?: boolean;
 }

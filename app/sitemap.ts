@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { recapsBySlug } from '@/content/recaps';
+import { defaultSlideDeck } from '@/modules/slides/content/index';
 
 const BASE_URL =
 	process.env.NEXT_PUBLIC_SITE_URL ||
@@ -15,6 +16,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		priority: 0.7,
 	}));
 
+	const slideEntries = Array.from({ length: defaultSlideDeck.totalSlides }, (_, index) => ({
+		url: `${BASE_URL}/slides/${index + 1}`,
+		lastModified: new Date(),
+		changeFrequency: 'monthly' as const,
+		priority: 0.5,
+	}));
+
 	return [
 		{
 			url: BASE_URL,
@@ -23,5 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 1,
 		},
 		...recapEntries,
+		...slideEntries,
 	];
 }

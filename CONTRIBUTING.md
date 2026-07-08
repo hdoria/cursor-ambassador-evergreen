@@ -9,13 +9,19 @@ Thanks for helping improve the Cursor Ambassador Site Template.
 3. Install dependencies:
 
    ```bash
-   npm install
+   pnpm install
    ```
 
-4. Start development:
+4. Copy environment defaults:
 
    ```bash
-   npm run dev
+   cp .env.example .env.local
+   ```
+
+5. Start development:
+
+   ```bash
+   pnpm dev
    ```
 
 ## Making Changes
@@ -25,6 +31,16 @@ Thanks for helping improve the Cursor Ambassador Site Template.
 - Use TypeScript for all code changes.
 - Keep styling in Tailwind utility classes and existing design tokens.
 - Avoid hardcoding city/community-specific values in `components/`.
+
+## Verification
+
+Before submitting a PR, run:
+
+```bash
+pnpm verify
+```
+
+This runs format check, lint, typecheck, bento layout validation, and production build.
 
 ## Adding a New Locale
 
@@ -37,12 +53,7 @@ Thanks for helping improve the Cursor Ambassador Site Template.
 
 1. Create a focused branch from `main`.
 2. Keep changes scoped to one concern where possible.
-3. Run build before submitting:
-
-   ```bash
-   npm run build
-   ```
-
+3. Run `pnpm verify` before submitting.
 4. Open a PR with:
    - A clear summary
    - Screenshots for UI changes

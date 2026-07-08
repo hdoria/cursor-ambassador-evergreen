@@ -61,7 +61,8 @@
 	--color-cursor-accent-red: #c4a0a0;
 	--color-cursor-accent-purple: #b8a8c8;
 	--color-cursor-accent-yellow: #c8bfa0;
-	--color-cursor-accent-orange: #c8b4a0;
+	--color-cursor-accent-orange: #f54e00;
+	--color-cursor-accent-orange-hover: #e04500;
 	--color-cursor-accent-blue-bg: rgba(26, 29, 46, 0.3);
 	--color-cursor-accent-green-bg: rgba(26, 36, 24, 0.3);
 	--color-cursor-accent-red-bg: rgba(42, 26, 24, 0.3);
@@ -70,7 +71,7 @@
 	--color-cursor-accent-orange-bg: rgba(42, 32, 24, 0.3);
 
 	--font-sans: 'CursorGothic', system-ui, sans-serif;
-	--font-mono: 'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 	--font-cursor: 'CursorGothic', system-ui, sans-serif;
 	--font-bsru: 'BSRU Pro', sans-serif;
 	--font-thai: 'Thasadith', sans-serif;
@@ -112,6 +113,17 @@
 		font-family: var(--font-sans);
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
 	}
 }
 

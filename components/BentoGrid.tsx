@@ -2,10 +2,12 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { isPriorityPhoto } from '@/lib/bento-assign';
 import { HeaderPhoto } from '@/lib/types';
 
 type BentoGridProps = {
-	photos: HeaderPhoto[];
+	desktopPhotos: HeaderPhoto[];
+	mobilePhotos: HeaderPhoto[];
 	cols?: number;
 	rows?: number;
 	mobileCols?: number;
@@ -23,7 +25,8 @@ function getSizes(colSpan: number, cols: number, fallback = 100) {
 }
 
 const BentoGrid: React.FC<BentoGridProps> = ({
-	photos,
+	desktopPhotos,
+	mobilePhotos,
 	cols = 4,
 	rows = 4,
 	mobileCols = 2,
@@ -39,36 +42,25 @@ const BentoGrid: React.FC<BentoGridProps> = ({
 					gridTemplateRows: `repeat(${mobileRows}, minmax(0, 1fr))`,
 				}}
 			>
-				{photos.map((photo, index) => {
-					if (photo.mobileHidden) return null;
-
-					const mobile = photo.mobile ?? {
-						row: photo.row,
-						col: photo.col,
-						rowSpan: photo.rowSpan,
-						colSpan: photo.colSpan,
-					};
-
-					return (
-						<div
-							key={`mobile-${index}`}
-							className="relative overflow-hidden"
-							style={{
-								gridRow: toGridPlacement(mobile.row, mobile.rowSpan),
-								gridColumn: toGridPlacement(mobile.col, mobile.colSpan),
-							}}
-						>
-							<Image
-								src={photo.src}
-								alt={photo.alt}
-								fill
-								className="object-cover"
-								sizes={getSizes(mobile.colSpan ?? 1, mobileCols)}
-								priority={index < 4}
-							/>
-						</div>
-					);
-				})}
+				{mobilePhotos.map((photo) => (
+					<div
+						key={`mobile-${photo.src}-${photo.row}-${photo.col}`}
+						className="relative overflow-hidden"
+						style={{
+							gridRow: toGridPlacement(photo.row, photo.rowSpan),
+							gridColumn: toGridPlacement(photo.col, photo.colSpan),
+						}}
+					>
+						<Image
+							src={photo.src}
+							alt={photo.alt}
+							fill
+							className="object-cover"
+							sizes={getSizes(photo.colSpan ?? 1, mobileCols)}
+							priority={isPriorityPhoto(photo, mobilePhotos)}
+						/>
+					</div>
+				))}
 			</div>
 
 			<div
@@ -78,9 +70,9 @@ const BentoGrid: React.FC<BentoGridProps> = ({
 					gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))`,
 				}}
 			>
-				{photos.map((photo, index) => (
+				{desktopPhotos.map((photo) => (
 					<div
-						key={`desktop-${index}`}
+						key={`desktop-${photo.src}-${photo.row}-${photo.col}`}
 						className="relative overflow-hidden"
 						style={{
 							gridRow: toGridPlacement(photo.row, photo.rowSpan),
@@ -93,7 +85,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
 							fill
 							className="object-cover"
 							sizes={getSizes(photo.colSpan ?? 1, cols)}
-							priority={index < 4}
+							priority={isPriorityPhoto(photo, desktopPhotos)}
 						/>
 					</div>
 				))}

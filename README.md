@@ -175,10 +175,10 @@ Remove an always-on section by deleting its component from `app/page.tsx`.
 
 ```bash
 pnpm dev                         # local development
-pnpm verify                      # format + lint + typecheck + validators + build + tweet API smoke
+pnpm verify                      # format + lint + typecheck + validators + build
 pnpm validate:bento              # slot overlap / grid coverage check
 pnpm validate:community-tweets   # tweet URL/id allowlist + Browse on X href
-pnpm test:smoke                  # production server: allowlisted tweet 200, unknown 400
+pnpm test:smoke                  # optional: production server tweet API (needs Twitter egress)
 pnpm typecheck                   # TypeScript only
 ```
 

@@ -13,7 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `content/community-tweets.ts` for curated status URLs with relevance sorting
 - Cached allowlisted API route at `/api/tweets/[id]`
 - City-aware "Browse on X" search link derived from `siteConfig`
-- `scripts/validate-community-tweets.ts` and `scripts/smoke-tweets-api.mjs` in `pnpm verify`
+- `scripts/validate-community-tweets.ts` in `pnpm verify`; optional `scripts/smoke-tweets-api.mjs` via `pnpm test:smoke`
 
 ### Changed
 
@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `next.config.js` adds `pbs.twimg.com` and `abs.twimg.com` to `images.remotePatterns`
 - Community tweets load via dynamic import so the homepage does not ship `react-tweet` when the section is off
 - README sites list → table with maintainers; Credits clarified (Created by / Contributors)
+- Tweet API route times out upstream fetches; `pnpm verify` no longer runs live Twitter smoke (CI-safe)
 
 ### Notes for consumers
 

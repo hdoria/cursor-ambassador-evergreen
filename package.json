@@ -15,7 +15,7 @@
 		"validate:bento": "tsx scripts/validate-bento.ts",
 		"validate:community-tweets": "tsx scripts/validate-community-tweets.ts",
 		"test:smoke": "node scripts/smoke-tweets-api.mjs",
-		"verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm validate:bento && pnpm validate:community-tweets && pnpm build && pnpm test:smoke"
+		"verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm validate:bento && pnpm validate:community-tweets && pnpm build"
 	},
 	"dependencies": {
 		"@vercel/analytics": "~1.6.1",

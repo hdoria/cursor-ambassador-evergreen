@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - CSP in `proxy.ts` allows Twitter image/media hosts when community tweets are enabled
 - `next.config.js` adds `pbs.twimg.com` and `abs.twimg.com` to `images.remotePatterns`
 - Community tweets load via dynamic import so the homepage does not ship `react-tweet` when the section is off
+- README sites list → table with maintainers; Credits clarified (Created by / Contributors)
 
 ### Notes for consumers
 

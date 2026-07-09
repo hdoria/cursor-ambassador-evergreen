@@ -5,7 +5,21 @@ import { isAllowedCommunityTweetId } from '@/content/community-tweets';
 
 export const runtime = 'nodejs';
 
-const getCachedTweet = unstable_cache(async (id: string) => fetchTweet(id), ['community-tweet'], {
+const TWEET_FETCH_TIMEOUT_MS = 8_000;
+
+async function fetchTweetWithTimeout(id: string) {
+	return await Promise.race([
+		fetchTweet(id),
+		new Promise<never>((_, reject) => {
+			setTimeout(
+				() => reject(new Error(`Tweet fetch timed out after ${TWEET_FETCH_TIMEOUT_MS}ms`)),
+				TWEET_FETCH_TIMEOUT_MS,
+			);
+		}),
+	]);
+}
+
+const getCachedTweet = unstable_cache(async (id: string) => fetchTweetWithTimeout(id), ['community-tweet'], {
 	revalidate: 86_400,
 });
 

@@ -4,6 +4,20 @@ All notable changes to this template are documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.2] - 2026-07-10
+
+### Added
+
+- Slides skeleton chrome: `TitleCard`, primitives (`SlideTitle` / `SlideBody` / `SlideGrid` / `SlideCallout` / …), `DiagramSlide` with CursorGothic injection
+- Shareable deck entry at `/slides` (slide 1); `/slides/1` and invalid ids redirect to `/slides`
+- Placeholder diagram `public/slides/diagrams/example-flow.svg`
+
+### Changed
+
+- Example deck is structure-only (no workshop curriculum) — replace `modules/slides/content/example-deck.tsx`
+- Slide nav uses UI kit pills; code/prompt blocks use CursorGothic (`font-sans`)
+- Featured CTA points at `/slides`
+
 ## [0.3.1] - 2026-07-10
 
 ### Added

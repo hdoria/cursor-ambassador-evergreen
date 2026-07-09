@@ -16,12 +16,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		priority: 0.7,
 	}));
 
-	const slideEntries = Array.from({ length: defaultSlideDeck.totalSlides }, (_, index) => ({
-		url: `${BASE_URL}/slides/${index + 1}`,
-		lastModified: new Date(),
-		changeFrequency: 'monthly' as const,
-		priority: 0.5,
-	}));
+	const slideEntries = [
+		{
+			url: `${BASE_URL}/slides`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly' as const,
+			priority: 0.6,
+		},
+		...Array.from({ length: Math.max(0, defaultSlideDeck.totalSlides - 1) }, (_, index) => ({
+			url: `${BASE_URL}/slides/${index + 2}`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly' as const,
+			priority: 0.5,
+		})),
+	];
 
 	return [
 		{

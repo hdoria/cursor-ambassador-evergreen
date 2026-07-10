@@ -30,7 +30,7 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({ photos }) => {
 			{/* Opaque 2×2 panel — covers the top-left bento slot on desktop and mobile */}
 			<div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 grid-rows-4 gap-px md:grid-cols-4 md:grid-rows-4">
 				<div className="pointer-events-auto relative col-span-2 row-span-2">
-					<div className="absolute inset-1 flex flex-col justify-end rounded-sm border border-cursor-border bg-cursor-surface p-6 md:inset-1.5 md:p-8 lg:p-10">
+					<div className="absolute inset-1 flex flex-col justify-end rounded-2xl border border-cursor-border bg-cursor-surface p-6 md:inset-1.5 md:p-8 lg:p-10">
 						<h1 className="cursor-display max-w-[18ch] text-cursor-text">{t('home.heroHeading')}</h1>
 						<div className="mt-7">
 							<Button href="#events" variant="primary" size="md">

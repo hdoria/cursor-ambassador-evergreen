@@ -17,7 +17,7 @@ export const slideDecks: Record<string, SlideDeckDefinition> = {
 	},
 };
 
-/** Default deck served at `/slides/[id]` — swap when adding more decks. */
+/** Default deck at `/slides` (slide 1) and `/slides/[id]` — swap when adding more decks. */
 export const defaultSlideDeck = slideDecks['example-deck'];
 
 export function getSlideDeckRoutes(): { id: string; slideNumber: number }[] {

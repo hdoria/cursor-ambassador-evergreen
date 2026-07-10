@@ -27,6 +27,15 @@ const nextConfig = {
 			},
 		];
 	},
+	async redirects() {
+		return [
+			{
+				source: '/slides/1',
+				destination: '/slides',
+				permanent: true,
+			},
+		];
+	},
 	images: {
 		remotePatterns: [
 			{

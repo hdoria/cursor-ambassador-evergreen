@@ -122,13 +122,15 @@ To enable the calendar embed: copy the embed URL from Luma → Calendar → Embe
 
 ### 6) Optional slides
 
-Slides are optional and live in `modules/slides/`.
+Slides are optional and live in `modules/slides/`. See `modules/slides/README.md`.
 
 - Registry: `modules/slides/content/index.ts`
-- Default deck: `modules/slides/content/example-deck.tsx`
-- Route: `app/slides/[id]/page.tsx`
+- Skeleton deck: `modules/slides/content/example-deck.tsx` (replace with your content)
+- Shareable entry: `/slides` (slide 1). Numbered: `/slides/2`…
+- `/slides/1` and invalid `/slides/XX` redirect to `/slides`
+- Chrome: `TitleCard`, primitives, `CodeBlock` / `PromptBlock` / `DiagramSlide` (CursorGothic)
 
-If your community does not use slides, remove links to `/slides/*` from content.
+If your community does not use slides, remove links to `/slides` from content.
 
 ### 7) Ambassadors and partners
 

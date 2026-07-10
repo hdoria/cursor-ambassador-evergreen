@@ -27,7 +27,7 @@ Open `http://localhost:3000`.
 - `components/ui/`: portable Cursor marketing primitives (`Button`, `Badge`, `TextLink`, card styles). See `docs/ui-kit.md`.
 - `components/layout/MarketingGrid.tsx`: 1300px / 24-column page shell with reusable content spans.
 - `components/HeroHeaderServer.tsx`: server-side daily photo shuffle into fixed bento slots.
-- `components/HeroHeader.tsx`: full-viewport editorial hero over the bento.
+- `components/HeroHeader.tsx`: opaque rounded copy panel over the top-left 2×2 bento slot.
 - `components/BentoGrid.tsx`: clean photo grid with click-to-expand.
 - `components/CommunityTweets.tsx`: optional curated X/Twitter mosaic (`react-tweet`).
 - `components/FeaturedSection.tsx`: featured resource card.
@@ -78,7 +78,9 @@ Images shuffle once per day (seeded by date + community name) into fixed slots o
 
 Add at least as many images as slots (7 on desktop). Run `pnpm validate:bento` after editing slots.
 
-The bento occupies the full hero viewport. Editorial copy and CTAs sit over a neutral legibility gradient; photos have no colored wash. Each tile can expand to full-bleed on click (Escape or second click collapses). The daily shuffle remains server-owned.
+The bento occupies the full hero viewport. An opaque rounded copy panel covers the top-left 2×2 slot (heading + events CTA) — keep that first slot’s geometry in `content/bento-slots.ts`, or update `HeroHeader.tsx` to match. Each photo tile can expand to full-bleed on click (Escape or second click collapses). The daily shuffle remains server-owned.
+
+When pulling upstream into a customized fork, prefer merging `components/` and resolving `content/events.ts` by keeping your events (optionally add `host`). See **Notes for consumers** in `CHANGELOG.md`.
 
 ### Automatic themes
 

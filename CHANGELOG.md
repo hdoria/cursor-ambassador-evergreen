@@ -10,7 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - Shared 1300px / 24-column marketing grid with wide, reading, and prose spans
 - Automatic warm-light and espresso-dark themes using semantic CSS tokens
-- Editorial hero copy and CTAs over the full-viewport daily-seeded bento
+- Opaque rounded hero copy panel over the top-left 2×2 bento slot (heading + events CTA)
+- Optional host venue logo chip on past-event / recap index cards (`event.host`)
 - Date-grouped upcoming event index
 
 ### Changed
@@ -21,6 +22,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Photography renders without colored tile washes or routine entrance animation
 - Typography, surfaces, buttons, links, recaps, and optional sections use shared semantic tokens
 - External text links use `↗`; internal links use `→`
+- Landing recap cards use a larger photo column; host logo sits in the text column (not over photos)
+
+### Notes for consumers
+
+- **Hero:** the gradient overlay + eyebrow / description / Luma Join CTA are gone. Copy lives in an opaque panel. Keep Join in the nav (default) or re-add a CTA in `components/HeroHeader.tsx`.
+- **Bento contract:** the panel assumes the first slot in `content/bento-slots.ts` stays top-left `2×2` on desktop and mobile. If you change that geometry, update the panel grid in `HeroHeader.tsx` to match.
+- **`content/events.ts`:** sample `host` may conflict on merge — keep your events; optionally add `host: { name, logo }` for the venue chip.
+- **Locales:** `home.heroEyebrow`, `home.heroDescription`, and `home.joinCommunity` remain in JSON but are unused by the new hero.
+- No new dependencies for this change. Run `pnpm verify` after merging.
 
 ## [0.3.2] - 2026-07-10
 

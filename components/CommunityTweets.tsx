@@ -77,9 +77,11 @@ export default function CommunityTweets() {
 			<h2 className="cursor-section-title mb-8 text-cursor-text">{t('home.communityTweetsHeading')}</h2>
 
 			{visibleEmbeds.length > 0 && (
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
+				<div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
 					{visibleEmbeds.map((entry) => (
-						<TweetCard key={entry.id} id={entry.id} url={entry.url} note={entry.note} dark={dark} />
+						<div key={entry.id} className="mb-4 break-inside-avoid">
+							<TweetCard id={entry.id} url={entry.url} note={entry.note} dark={dark} />
+						</div>
 					))}
 				</div>
 			)}

@@ -2,7 +2,15 @@
  * REPLACE: Curated community Twitter/X posts for the homepage mosaic.
  *
  * Paste status URLs from your local chapter (not profile URLs).
- * Higher `relevance` values appear first. Example seed uses global Cafe Cursor posts.
+ * Suggested relevance tiers (desc):
+ *   100 — Local community about your city / chapter
+ *    90 — Cursor staff about your city / chapter
+ *    70 — Nearby / regional Cafe Cursor
+ *    55 — Cursor staff about other Cafe Cursor events
+ *    40 — Other city community posts
+ *
+ * Homepage layout is a masonry (CSS columns) — cards stack under each other
+ * instead of aligning to fixed rows.
  */
 
 import { siteConfig } from '@/content/site.config';

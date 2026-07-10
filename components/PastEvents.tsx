@@ -35,6 +35,20 @@ const PastEvents: React.FC = () => {
 											className="object-cover"
 											sizes="(max-width: 768px) 100vw, 240px"
 										/>
+										{event.host?.logo ? (
+											<div
+												className="absolute bottom-2 left-2 z-10 flex h-12 w-12 items-center justify-center rounded-sm border border-cursor-border bg-cursor-surface p-2"
+												aria-hidden
+											>
+												<Image
+													src={event.host.logo}
+													alt=""
+													width={32}
+													height={32}
+													className="h-full w-full object-contain opacity-80"
+												/>
+											</div>
+										) : null}
 									</div>
 								) : null}
 								<div className="flex flex-col justify-between p-5">
@@ -44,7 +58,10 @@ const PastEvents: React.FC = () => {
 											{event.attendees ? ` · ${t('home.attendees', { count: String(event.attendees) })}` : ''}
 										</p>
 										<h3 className="mt-2 text-xl font-normal tracking-tight text-cursor-text">{event.title}</h3>
-										<p className="mt-1 text-sm text-cursor-text-muted">{event.location}</p>
+										<p className="mt-1 text-sm text-cursor-text-muted">
+											{event.host ? `${event.host.name} · ` : ''}
+											{event.location}
+										</p>
 									</div>
 									<p className="mt-6 text-sm text-cursor-accent-orange">
 										{t('home.viewRecap')} <span aria-hidden="true">→</span>

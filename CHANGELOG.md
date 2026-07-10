@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - Navigation and footer use compact global chrome aligned to the marketing grid
+- Hosting partners use a bordered logo grid with grayscale-to-color interaction
 - Photography renders without colored tile washes or routine entrance animation
 - Typography, surfaces, buttons, links, recaps, and optional sections use shared semantic tokens
 - External text links use `↗`; internal links use `→`

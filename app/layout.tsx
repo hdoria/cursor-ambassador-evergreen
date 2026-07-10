@@ -5,13 +5,44 @@ import Providers from '@/components/Providers';
 import { siteConfig } from '@/content/site.config';
 import './globals.css';
 
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/$/, '');
+const title = siteConfig.communityName;
+const description =
+	siteConfig.description ||
+	`Cursor meetups and workshops in ${siteConfig.city}, ${siteConfig.country}.`;
+const ogImage = siteConfig.ogImage || '/og.jpg';
+
 export const metadata: Metadata = {
-	title: `${siteConfig.communityName} | Cursor Ambassador Site`,
-	description: 'Reusable Cursor Ambassador website template for local communities.',
+	metadataBase: new URL(siteUrl),
+	title: {
+		default: title,
+		template: `%s | ${siteConfig.communityName}`,
+	},
+	description,
+	alternates: {
+		canonical: siteUrl,
+	},
 	openGraph: {
-		title: siteConfig.communityName,
-		description: 'Reusable Cursor Ambassador website template for local communities.',
+		title,
+		description,
 		type: 'website',
+		url: siteUrl,
+		siteName: siteConfig.communityName,
+		locale: siteConfig.defaultLocale === 'en' ? 'en_US' : siteConfig.defaultLocale,
+		images: [
+			{
+				url: ogImage,
+				width: 1200,
+				height: 630,
+				alt: `${siteConfig.communityName} in ${siteConfig.city}`,
+			},
+		],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title,
+		description,
+		images: [ogImage],
 	},
 };
 

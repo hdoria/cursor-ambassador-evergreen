@@ -22,16 +22,23 @@ export async function generateMetadata({ params }: RecapPageProps): Promise<Meta
 	const recap = recapsBySlug[slug];
 	if (!recap) return {};
 
-	const description = recap.summary[0] || `Recap of ${recap.title}`;
+	const description = recap.summary[0] || `${recap.title} — ${recap.date}.`;
+	const ogImage = recap.photos[0]?.src || siteConfig.ogImage || '/og.jpg';
 
 	return {
-		title: `${recap.title} | ${siteConfig.communityName}`,
+		title: recap.title,
 		description,
 		openGraph: {
 			title: recap.title,
 			description,
 			type: 'article',
-			...(recap.photos[0]?.src ? { images: [{ url: recap.photos[0].src, alt: recap.photos[0].alt }] } : {}),
+			images: [{ url: ogImage, alt: recap.photos[0]?.alt || recap.title }],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: recap.title,
+			description,
+			images: [ogImage],
 		},
 	};
 }

@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Opaque rounded hero copy panel over the top-left 2×2 bento slot (heading + events CTA)
 - Optional host venue logo chip on past-event / recap index cards (`event.host`)
 - Date-grouped upcoming event index
+- Site SEO fields on `siteConfig` (`description`, `ogImage`) plus default `public/og.jpg` (1200×630) for Open Graph / Twitter cards
 
 ### Changed
 
@@ -23,6 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Typography, surfaces, buttons, links, recaps, and optional sections use shared semantic tokens
 - External text links use `↗`; internal links use `→`
 - Landing recap cards use a larger photo column; host logo sits in the text column (not over photos)
+- Root metadata uses `summary_large_image`, `metadataBase` from `NEXT_PUBLIC_SITE_URL`, and chapter `description` / `ogImage`
 
 ### Notes for consumers
 

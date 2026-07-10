@@ -11,6 +11,10 @@ export const siteConfig = {
 	defaultLocale: 'en',
 	locales: ['en'],
 	footerTagline: 'Made with Cursor by ambassadors worldwide',
+	/** Short site description for <meta>, Open Graph, and Twitter cards. Keep it concrete. */
+	description: 'Local Cursor meetups, workshops, and event recaps.',
+	/** Path under /public for the default 1200×630 share image. */
+	ogImage: '/og.jpg',
 	sections: {
 		matchmaking: false,
 		photoDisclaimer: false,

@@ -66,9 +66,11 @@ Edit `content/site.config.ts`:
 - `lumaUrl`, `lumaCalendarEmbedUrl`, `cursorCommunityUrl`
 - `defaultLocale`, `locales`
 - `footerTagline`
+- `description` — short Open Graph / Twitter / `<meta>` description (keep it concrete; avoid marketing fluff)
+- `ogImage` — path under `public/` for a 1200×630 share image (template ships `public/og.jpg`; replace with a chapter photo)
 - `sections`: toggle optional blocks (`matchmaking`, `photoDisclaimer`, `lumaCalendar`, `communityTweets`)
 
-Set `NEXT_PUBLIC_SITE_URL` in `.env.local` for sitemap and metadata URLs.
+Set `NEXT_PUBLIC_SITE_URL` in `.env.local` for sitemap, canonical URLs, and Open Graph (`metadataBase`). Without it, previews fall back to `http://localhost:3000`.
 
 ### 2) Hero bento grid
 

@@ -13,10 +13,29 @@ type PastEventsProps = {
 
 const PastEventCard: React.FC<{ event: CursorEvent }> = ({ event }) => {
 	const { t } = useI18n();
+	// Com 2+ fotos de galeria o card vira colagem (1 grande + 2 menores).
+	const galleryPair = event.thumbnail ? (event.galleryImages ?? []).slice(0, 2) : [];
 
 	return (
 		<article className={event.thumbnail ? 'grid md:grid-cols-[minmax(0,1.35fr)_minmax(280px,0.9fr)]' : ''}>
-			{event.thumbnail ? (
+			{event.thumbnail && galleryPair.length === 2 ? (
+				<div className="grid aspect-[16/10] grid-cols-[1.55fr_1fr] grid-rows-2 gap-px overflow-hidden md:aspect-auto md:min-h-[280px]">
+					<div className="relative row-span-2">
+						<Image
+							src={event.thumbnail}
+							alt={event.title}
+							fill
+							className="object-cover"
+							sizes="(max-width: 768px) 62vw, 450px"
+						/>
+					</div>
+					{galleryPair.map((src) => (
+						<div key={src} className="relative">
+							<Image src={src} alt="" fill className="object-cover" sizes="(max-width: 768px) 38vw, 280px" />
+						</div>
+					))}
+				</div>
+			) : event.thumbnail ? (
 				<div className="relative aspect-[16/10] overflow-hidden md:aspect-auto md:min-h-[280px]">
 					<Image
 						src={event.thumbnail}

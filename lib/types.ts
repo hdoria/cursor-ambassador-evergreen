@@ -26,7 +26,8 @@ export interface SocialLinks {
 export interface Ambassador {
 	name: string;
 	role?: string;
-	photo: string;
+	/** Optional; cards without a photo render the person's initials. */
+	photo?: string;
 	links: SocialLinks;
 }
 

@@ -2,10 +2,15 @@
 
 import React from 'react';
 import WorldEventsCarousel from '@/components/WorldEventsCarousel';
+import { worldEventPhotos } from '@/content/world-events';
 import { useI18n } from '@/lib/i18n';
 
 const GlobalEvents: React.FC = () => {
 	const { t } = useI18n();
+
+	if (worldEventPhotos.length === 0) {
+		return null;
+	}
 
 	return (
 		<section className="mb-20">

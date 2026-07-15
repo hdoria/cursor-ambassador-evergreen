@@ -1,34 +1,35 @@
 import { BentoImage } from '@/lib/types';
 
-// REPLACE: Add real event/city images for your community. Layout slots live in bento-slots.ts;
-// images shuffle daily into those fixed slots on the server.
+// SUBSTITUIR: trocar pelas fotos reais de encontros das cidades brasileiras,
+// mantendo os mesmos caminhos de arquivo. O layout dos slots fica em
+// bento-slots.ts; as fotos embaralham diariamente no servidor.
 export const headerPhotoPool: BentoImage[] = [
 	{
 		src: '/images/events/cursor-event-01.jpg',
-		alt: 'Cursor community event group photo',
+		alt: 'Foto de grupo em um encontro da comunidade Cursor',
 	},
 	{
 		src: '/images/events/cursor-event-02.jpg',
-		alt: 'Cursor meetup participants working together',
+		alt: 'Participantes de um meetup Cursor trabalhando juntos',
 	},
 	{
 		src: '/images/events/cursor-event-03.jpg',
-		alt: 'Cursor workshop moment during session',
+		alt: 'Momento de um workshop da comunidade Cursor',
 	},
 	{
 		src: '/images/events/cursor-event-04.jpg',
-		alt: 'Cursor community photo from event',
+		alt: 'Foto da comunidade durante um evento Cursor',
 	},
 	{
 		src: '/images/events/cursor-event-05.jpg',
-		alt: 'Cursor meetup attendees in discussion',
+		alt: 'Participantes de um meetup Cursor conversando',
 	},
 	{
 		src: '/images/events/cursor-event-06.jpg',
-		alt: 'Cursor event participants and speakers',
+		alt: 'Participantes e palestrantes de um evento Cursor',
 	},
 	{
 		src: '/images/events/cursor-event-07.jpg',
-		alt: 'Cursor community moment from social share',
+		alt: 'Momento da comunidade Cursor em um encontro',
 	},
 ];

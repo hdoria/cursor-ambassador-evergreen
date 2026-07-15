@@ -15,6 +15,7 @@ import LumaCalendarSection from '@/components/LumaCalendar';
 import CommunityTweetsSection from '@/components/CommunityTweetsSection';
 import { siteConfig } from '@/content/site.config';
 import { pastEvents, upcomingEvents as manualUpcomingEvents } from '@/content/events';
+import { worldEventPhotos } from '@/content/world-events';
 import ChaptersSection from '@/components/ChaptersSection';
 import { getAggregatedUpcomingEvents } from '@/lib/events-source';
 import type { CursorEvent } from '@/lib/types';
@@ -139,12 +140,16 @@ export default async function Home() {
 						</GridSection>
 					</>
 				) : null}
-				<GridSection>
-					<SectionDivider />
-				</GridSection>
-				<GridSection>
-					<GlobalEvents />
-				</GridSection>
+				{worldEventPhotos.length > 0 ? (
+					<>
+						<GridSection>
+							<SectionDivider />
+						</GridSection>
+						<GridSection>
+							<GlobalEvents />
+						</GridSection>
+					</>
+				) : null}
 				<GridSection>
 					<SectionDivider />
 				</GridSection>

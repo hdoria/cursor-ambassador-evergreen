@@ -1,9 +1,9 @@
 import { FeaturedResource } from '@/lib/types';
 
-// REPLACE: Customize the featured card text and destination for your community.
 export const featuredResource: FeaturedResource = {
-	title: 'Community resources',
-	description: 'Slides, guides, and materials shared by your local Cursor community.',
-	href: '/slides',
-	ctaLabel: 'Browse resources',
+	title: 'Encontre seu capítulo',
+	description:
+		'Tem comunidade Cursor em 11 cidades do Brasil. Encontre a sua, siga o calendário no Luma e apareça no próximo encontro.',
+	href: '/#chapters',
+	ctaLabel: 'Ver capítulos',
 };

@@ -32,6 +32,13 @@ const SocialIcon: React.FC<SocialIconProps> = ({ kind }) => {
 	return <Globe className="w-4 h-4" />;
 };
 
+function initialsOf(name: string): string {
+	const parts = name.trim().split(/\s+/);
+	const first = parts[0]?.[0] ?? '';
+	const last = parts.length > 1 ? (parts[parts.length - 1][0] ?? '') : '';
+	return `${first}${last}`.toUpperCase();
+}
+
 const AmbassadorSection: React.FC = () => {
 	const { t } = useI18n();
 
@@ -57,7 +64,16 @@ const AmbassadorSection: React.FC = () => {
 						<article key={ambassador.name} className={`${cardTile} p-5 group`}>
 							<div className="flex items-center gap-4">
 								<div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-cursor-border-emphasis">
-									<Image src={ambassador.photo} alt={ambassador.name} fill className="object-cover" sizes="80px" />
+									{ambassador.photo ? (
+										<Image src={ambassador.photo} alt={ambassador.name} fill className="object-cover" sizes="80px" />
+									) : (
+										<span
+											aria-hidden="true"
+											className="flex h-full w-full items-center justify-center bg-cursor-surface text-lg text-cursor-text-muted"
+										>
+											{initialsOf(ambassador.name)}
+										</span>
+									)}
 								</div>
 								<div>
 									<p className="text-cursor-text font-medium">{ambassador.name}</p>

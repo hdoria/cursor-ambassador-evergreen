@@ -1,3 +1,11 @@
+# Cursor Brasil
+
+Site nacional da comunidade Cursor no Brasil: [www.cursorbrasil.com.br](https://www.cursorbrasil.com.br). Interface em pt-BR, 11 capítulos (dados em `content/chapters.ts`) e eventos futuros agregados automaticamente dos calendários Luma de cada cidade (`lib/events-source.ts`).
+
+Fork do template [cursor-ambassador-evergreen](https://github.com/luisfer/cursor-ambassador-evergreen). A documentação original do template segue abaixo e continua valendo para estrutura, conteúdo e deploy.
+
+---
+
 # Cursor Ambassador Evergreen Template
 
 ![Cursor Ambassador Banner](public/images/readme-banner.jpg)

@@ -11,6 +11,7 @@ export const ambassadors: Ambassador[] = [
 		links: {
 			instagram: 'https://instagram.com/hdoria',
 			linkedin: 'https://linkedin.com/in/hdoria',
+			github: 'https://github.com/hdoria',
 			website: 'https://hdoria.me',
 		},
 	},
@@ -21,6 +22,15 @@ export const ambassadors: Ambassador[] = [
 		links: {
 			instagram: 'https://instagram.com/marlonvidalf',
 			linkedin: 'https://linkedin.com/in/marlonvidal',
+		},
+	},
+	{
+		name: 'Adrianno Esnarriaga',
+		role: 'Embaixador Cursor · Curitiba',
+		links: {
+			instagram: 'https://instagram.com/adriannoes',
+			linkedin: 'https://www.linkedin.com/in/adrianno',
+			github: 'https://github.com/adriannoes',
 		},
 	},
 	{

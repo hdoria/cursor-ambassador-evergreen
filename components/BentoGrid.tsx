@@ -106,7 +106,7 @@ function BentoTile({
 			>
 				{isExpanded ? (
 					<div className="absolute inset-0 bg-cursor-bg-dark" aria-hidden />
-				) : (
+				) : photo.src ? (
 					<motion.div layoutId={heroExpandLayoutId(variant, tileIndex)} className="absolute inset-0">
 						<Image
 							src={photo.src}
@@ -117,6 +117,8 @@ function BentoTile({
 							priority={priority}
 						/>
 					</motion.div>
+				) : (
+					<div className="absolute inset-0 bg-cursor-surface" aria-hidden />
 				)}
 			</button>
 		</motion.div>

@@ -51,6 +51,11 @@ function mobileVisibleSlots(slots: BentoSlot[]): BentoSlot[] {
 }
 
 export function assignPhotosToSlots(pool: BentoImage[], slots: BentoSlot[], seed: string): HeaderPhoto[] {
+	// Pool vazio e suportado: os slots viram tiles sem foto (src vazio).
+	if (pool.length === 0) {
+		return slots.map((slot) => ({ ...slot, src: '', alt: '' }));
+	}
+
 	if (pool.length < slots.length) {
 		console.warn(
 			`[bento] Image pool (${pool.length}) is smaller than slot count (${slots.length}). Images will repeat.`,

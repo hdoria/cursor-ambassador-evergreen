@@ -1,35 +1,8 @@
 import { BentoImage } from '@/lib/types';
 
-// SUBSTITUIR: trocar pelas fotos reais de encontros das cidades brasileiras,
-// mantendo os mesmos caminhos de arquivo. O layout dos slots fica em
-// bento-slots.ts; as fotos embaralham diariamente no servidor.
-export const headerPhotoPool: BentoImage[] = [
-	{
-		src: '/images/events/cursor-event-01.jpg',
-		alt: 'Foto de grupo em um encontro da comunidade Cursor',
-	},
-	{
-		src: '/images/events/cursor-event-02.jpg',
-		alt: 'Participantes de um meetup Cursor trabalhando juntos',
-	},
-	{
-		src: '/images/events/cursor-event-03.jpg',
-		alt: 'Momento de um workshop da comunidade Cursor',
-	},
-	{
-		src: '/images/events/cursor-event-04.jpg',
-		alt: 'Foto da comunidade durante um evento Cursor',
-	},
-	{
-		src: '/images/events/cursor-event-05.jpg',
-		alt: 'Participantes de um meetup Cursor conversando',
-	},
-	{
-		src: '/images/events/cursor-event-06.jpg',
-		alt: 'Participantes e palestrantes de um evento Cursor',
-	},
-	{
-		src: '/images/events/cursor-event-07.jpg',
-		alt: 'Momento da comunidade Cursor em um encontro',
-	},
-];
+// Pool de fotos do hero. Vazio de proposito: o template vinha com fotos de
+// eventos de outras comunidades (Seul, Berlim, SF) e nao vamos exibi-las como
+// se fossem nossas. Com o pool vazio o bento renderiza tiles escuros, igual ao
+// cursorthailand.com. Quando as fotos dos meetups brasileiros chegarem, basta
+// adiciona-las aqui (minimo ideal: 7, uma por slot do desktop).
+export const headerPhotoPool: BentoImage[] = [];

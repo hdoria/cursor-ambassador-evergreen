@@ -31,5 +31,6 @@ export const headerPhotoPool: BentoImage[] = [
 	{
 		src: '/images/events/aracaju-hero-08.jpg',
 		alt: 'Comunidade Cursor reunida no encontro de julho em Aracaju',
+		objectPosition: 'center 30%',
 	},
 ];

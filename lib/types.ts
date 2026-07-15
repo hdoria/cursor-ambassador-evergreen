@@ -67,6 +67,8 @@ export interface FeaturedResource {
 export interface BentoImage {
 	src: string;
 	alt: string;
+	/** CSS object-position para ajustar o corte no tile (ex.: 'center 30%'). */
+	objectPosition?: string;
 }
 
 export interface BentoSlot {

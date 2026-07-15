@@ -113,6 +113,7 @@ function BentoTile({
 							alt={photo.alt}
 							fill
 							className="object-cover"
+							style={photo.objectPosition ? { objectPosition: photo.objectPosition } : undefined}
 							sizes={getSizes(photo.colSpan ?? 1, cols)}
 							priority={priority}
 						/>

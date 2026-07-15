@@ -32,6 +32,13 @@ export const headerPhotoPool: BentoImage[] = [
 		src: '/images/events/canela-hero-02.jpg',
 		alt: 'Palestrante no workshop da comunidade Cursor em Canela',
 	},
+	// Entrada duplicada de proposito: ocupa a posicao que era da foto do cafe
+	// de Floripa. Mesmo tamanho e ordem do pool preservam o sorteio diario dos
+	// demais quadrantes (o embaralhamento depende do indice de cada item).
+	{
+		src: '/images/events/aracaju-hero-05.jpg',
+		alt: 'Participante com o copo do Cursor durante um meetup em Aracaju',
+	},
 	{
 		src: '/images/events/floripa-hero-02.jpg',
 		alt: 'Foto de grupo da comunidade Cursor em um encontro em Florianópolis',

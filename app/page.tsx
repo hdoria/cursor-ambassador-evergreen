@@ -14,7 +14,8 @@ import PhotoDisclaimer from '@/components/PhotoDisclaimer';
 import LumaCalendarSection from '@/components/LumaCalendar';
 import CommunityTweetsSection from '@/components/CommunityTweetsSection';
 import { siteConfig } from '@/content/site.config';
-import { upcomingEvents as manualUpcomingEvents } from '@/content/events';
+import { pastEvents, upcomingEvents as manualUpcomingEvents } from '@/content/events';
+import ChaptersSection from '@/components/ChaptersSection';
 import { getAggregatedUpcomingEvents } from '@/lib/events-source';
 import type { CursorEvent } from '@/lib/types';
 import { MarketingColumn, MarketingGrid } from '@/components/layout/MarketingGrid';
@@ -83,49 +84,51 @@ export default async function Home() {
 
 			<div className="py-20 md:py-28">
 				<GridSection>
-					<AmbassadorSection />
+					<ChaptersSection />
 				</GridSection>
-				<GridSection>
-					<SectionDivider />
-				</GridSection>
-				<GridSection width="reading">
-					<FeaturedSection />
-				</GridSection>
-				<GridSection>
-					<SectionDivider />
-				</GridSection>
-				<GridSection>
-					<UpcomingEvents events={upcoming} />
-				</GridSection>
-				{siteConfig.sections.matchmaking ? (
+				{upcoming.length > 0 ? (
 					<>
-						<GridSection width="reading">
-							<MatchmakingSection />
-						</GridSection>
 						<GridSection>
 							<SectionDivider />
+						</GridSection>
+						<GridSection>
+							<UpcomingEvents events={upcoming} />
+						</GridSection>
+					</>
+				) : null}
+				{siteConfig.sections.matchmaking ? (
+					<>
+						<GridSection>
+							<SectionDivider />
+						</GridSection>
+						<GridSection width="reading">
+							<MatchmakingSection />
 						</GridSection>
 					</>
 				) : null}
 				{siteConfig.sections.photoDisclaimer ? (
 					<>
-						<GridSection width="reading">
-							<PhotoDisclaimer />
-						</GridSection>
 						<GridSection>
 							<SectionDivider />
+						</GridSection>
+						<GridSection width="reading">
+							<PhotoDisclaimer />
 						</GridSection>
 					</>
 				) : null}
 				<GridSection>
 					<LumaCalendarSection />
 				</GridSection>
-				<GridSection>
-					<SectionDivider />
-				</GridSection>
-				<GridSection>
-					<PastEvents />
-				</GridSection>
+				{pastEvents.length > 0 ? (
+					<>
+						<GridSection>
+							<SectionDivider />
+						</GridSection>
+						<GridSection>
+							<PastEvents />
+						</GridSection>
+					</>
+				) : null}
 				{siteConfig.sections.communityTweets ? (
 					<>
 						<GridSection>
@@ -141,6 +144,18 @@ export default async function Home() {
 				</GridSection>
 				<GridSection>
 					<GlobalEvents />
+				</GridSection>
+				<GridSection>
+					<SectionDivider />
+				</GridSection>
+				<GridSection>
+					<AmbassadorSection />
+				</GridSection>
+				<GridSection>
+					<SectionDivider />
+				</GridSection>
+				<GridSection width="reading">
+					<FeaturedSection />
 				</GridSection>
 			</div>
 			<Footer upcomingEvents={upcoming} />

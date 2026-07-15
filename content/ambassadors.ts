@@ -1,8 +1,7 @@
 import { Ambassador } from '@/lib/types';
 
-// Embaixadores com foto e links entram aqui conforme enviarem o material.
-// Sem foto, o card mostra as iniciais. Organizadores de cada cidade ficam em
-// content/chapters.ts.
+// Fotos de Instagram (og:image publico) sao 100px; trocar por fotos maiores
+// quando cada embaixador enviar. Organizadores por cidade: content/chapters.ts.
 export const ambassadors: Ambassador[] = [
 	{
 		name: 'Hugo Dória',
@@ -12,7 +11,50 @@ export const ambassadors: Ambassador[] = [
 			instagram: 'https://instagram.com/hdoria',
 			linkedin: 'https://linkedin.com/in/hdoria',
 			github: 'https://github.com/hdoria',
+			cursor: 'https://cursor.com/@hdoria',
 			website: 'https://hdoria.me',
+		},
+	},
+	{
+		name: 'Adrianno Esnarriaga',
+		role: 'Embaixador Cursor · Curitiba',
+		photo: '/images/ambassadors/adrianno-esnarriaga.jpg',
+		links: {
+			instagram: 'https://instagram.com/adriannoes',
+			linkedin: 'https://www.linkedin.com/in/adrianno',
+			github: 'https://github.com/adriannoes',
+		},
+	},
+	{
+		name: 'Benjamin Bauer',
+		role: 'Embaixador Cursor · Salvador',
+		photo: '/images/ambassadors/benjamin-bauer.jpg',
+		links: {
+			instagram: 'https://instagram.com/benibauer',
+			linkedin: 'https://www.linkedin.com/in/benjamin-bauer2/',
+		},
+	},
+	{
+		name: 'Gustavo Winter',
+		role: 'Embaixador Cursor · Porto Alegre',
+		photo: '/images/ambassadors/gustavo-winter.jpg',
+		links: {
+			x: 'https://x.com/gwinterxAI',
+			instagram: 'https://instagram.com/gustavowinter_',
+			linkedin: 'https://www.linkedin.com/in/gustavowinter',
+			github: 'https://github.com/GustavoWinter',
+			cursor: 'https://cursor.com/@gwinter',
+		},
+	},
+	{
+		name: 'Marcelo Barella',
+		role: 'Embaixador Cursor · Passo Fundo',
+		photo: '/images/ambassadors/marcelo-barella.jpg',
+		links: {
+			instagram: 'https://instagram.com/_mbarella',
+			linkedin: 'https://www.linkedin.com/in/marcelo-barella-29ba63234/',
+			github: 'https://github.com/Marcelo-Barella',
+			cursor: 'https://cursor.com/@mbarella',
 		},
 	},
 	{
@@ -25,33 +67,9 @@ export const ambassadors: Ambassador[] = [
 		},
 	},
 	{
-		name: 'Adrianno Esnarriaga',
-		role: 'Embaixador Cursor · Curitiba',
-		links: {
-			instagram: 'https://instagram.com/adriannoes',
-			linkedin: 'https://www.linkedin.com/in/adrianno',
-			github: 'https://github.com/adriannoes',
-		},
-	},
-	{
-		name: 'Benjamin Bauer',
-		role: 'Embaixador Cursor · Salvador',
-		links: {
-			instagram: 'https://instagram.com/benibauer',
-			linkedin: 'https://www.linkedin.com/in/benjamin-bauer2/',
-		},
-	},
-	{
-		name: 'Marcelo Barella',
-		role: 'Embaixador Cursor · Passo Fundo',
-		links: {
-			instagram: 'https://instagram.com/_mbarella',
-			linkedin: 'https://www.linkedin.com/in/marcelo-barella-29ba63234/',
-		},
-	},
-	{
 		name: 'Rodrigo Silva',
 		role: 'Embaixador Cursor · Rio de Janeiro e São Paulo',
+		photo: '/images/ambassadors/rodrigo-silva.jpg',
 		links: {
 			instagram: 'https://instagram.com/rodrigosilvacio',
 			linkedin: 'https://linkedin.com/in/rodrigosilvacio',

@@ -22,12 +22,12 @@ export const chapters: Chapter[] = [
 		website: 'https://www.cursorbh.com.br',
 	},
 	{
-		slug: 'canela',
-		city: 'Canela',
+		slug: 'serra-gaucha',
+		city: 'Serra Gaúcha',
 		state: 'RS',
 		organizers: [],
 		lumaCalendarId: 'cal-2d4PGTKj40HnpEc',
-		lumaUrl: 'https://luma.com/cursor-canela-brazil',
+		lumaUrl: 'https://luma.com/cursor-serra-gaucha-brazil',
 	},
 	{
 		slug: 'curitiba',

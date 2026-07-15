@@ -64,22 +64,24 @@ const ChaptersSection: React.FC = () => {
 						<div>
 							{chapter.organizers.length > 0 ? <p className="cursor-eyebrow mb-1">{t('chapters.organizers')}</p> : null}
 							<ul className="text-sm text-cursor-text-secondary">
-								{chapter.organizers.map((organizer) => (
-									<li key={organizer.name}>
-										{organizer.url ? (
-											<a
-												href={organizer.url}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="hover:text-cursor-text transition-colors"
-											>
-												{organizer.name}
-											</a>
-										) : (
-											organizer.name
-										)}
-									</li>
-								))}
+								{[...chapter.organizers]
+									.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
+									.map((organizer) => (
+										<li key={organizer.name}>
+											{organizer.url ? (
+												<a
+													href={organizer.url}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="hover:text-cursor-text transition-colors"
+												>
+													{organizer.name}
+												</a>
+											) : (
+												organizer.name
+											)}
+										</li>
+									))}
 							</ul>
 						</div>
 

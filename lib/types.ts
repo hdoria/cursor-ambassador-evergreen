@@ -21,6 +21,8 @@ export interface SocialLinks {
 	instagram?: string;
 	linkedin?: string;
 	github?: string;
+	/** Perfil publico em cursor.com (ex.: https://cursor.com/@hdoria). */
+	cursor?: string;
 	website?: string;
 }
 

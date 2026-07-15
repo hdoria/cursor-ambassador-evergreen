@@ -1,6 +1,24 @@
 import { WorldEventPhoto } from '@/lib/types';
 
 // Fotos reais de encontros pelo Brasil (src, location, date, alt). A secao
-// "Cursor pelo Brasil" so aparece quando este array tem fotos. Nao rotule
-// foto de evento de fora como cidade brasileira.
-export const worldEventPhotos: WorldEventPhoto[] = [];
+// "Cursor pelo Brasil" so aparece quando este array tem fotos.
+export const worldEventPhotos: WorldEventPhoto[] = [
+	{
+		src: '/images/events/aracaju-world-01.jpg',
+		location: 'Aracaju',
+		date: 'Julho de 2026',
+		alt: 'Participantes do encontro da comunidade Cursor em Aracaju',
+	},
+	{
+		src: '/images/events/canela-world-01.jpg',
+		location: 'Canela',
+		date: 'Julho de 2026',
+		alt: 'Palestrante no workshop da comunidade Cursor em Canela',
+	},
+	{
+		src: '/images/events/canela-2026-07-02.jpg',
+		location: 'Canela',
+		date: 'Julho de 2026',
+		alt: 'Convidado respondendo perguntas no workshop Cursor em Canela',
+	},
+];

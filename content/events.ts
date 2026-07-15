@@ -7,6 +7,18 @@ import { CursorEvent } from '@/lib/types';
 //    com 2 fotos viram colagem no card; recapPath linka a pagina de recap).
 export const events: CursorEvent[] = [
 	{
+		id: 'cursor-workshop-canela-2026-07-10',
+		title: 'Cursor Workshop - Canela',
+		date: '2026-07-10',
+		displayDate: '10 de julho de 2026',
+		location: 'Canela, RS',
+		lumaUrl: 'https://luma.com/cursor-vipo',
+		thumbnail: '/images/events/canela-2026-07-01.jpg',
+		galleryImages: ['/images/events/canela-2026-07-02.jpg', '/images/events/canela-2026-07-03.jpg'],
+		host: { name: 'Cursor Serra Gaúcha', logo: '/cursor-logo.svg', url: 'https://luma.com/cursor-serra-gaucha-brazil' },
+		status: 'past',
+	},
+	{
 		id: 'cursor-aracaju-2026-07-11',
 		title: 'Cursor Aracaju',
 		date: '2026-07-11',

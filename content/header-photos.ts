@@ -1,8 +1,35 @@
 import { BentoImage } from '@/lib/types';
 
-// Pool de fotos do hero. Vazio de proposito: o template vinha com fotos de
-// eventos de outras comunidades (Seul, Berlim, SF) e nao vamos exibi-las como
-// se fossem nossas. Com o pool vazio o bento renderiza tiles escuros, igual ao
-// cursorthailand.com. Quando as fotos dos meetups brasileiros chegarem, basta
-// adiciona-las aqui (minimo ideal: 7, uma por slot do desktop).
-export const headerPhotoPool: BentoImage[] = [];
+// Fotos reais dos encontros da comunidade no Brasil. O layout dos slots fica
+// em bento-slots.ts; as fotos embaralham diariamente no servidor. Ao receber
+// fotos de outras cidades, adicione aqui (rode pnpm validate:bento depois).
+export const headerPhotoPool: BentoImage[] = [
+	{
+		src: '/images/events/aracaju-hero-01.jpg',
+		alt: 'Foto de grupo da comunidade Cursor em um encontro em Aracaju',
+	},
+	{
+		src: '/images/events/aracaju-hero-02.jpg',
+		alt: 'Participantes trabalhando juntos em um meetup Cursor em Aracaju',
+	},
+	{
+		src: '/images/events/aracaju-hero-03.jpg',
+		alt: 'Plateia acompanhando uma sessão no meetup Cursor de Aracaju',
+	},
+	{
+		src: '/images/events/aracaju-hero-04.jpg',
+		alt: 'Palestrante falando com a comunidade em um encontro Cursor em Aracaju',
+	},
+	{
+		src: '/images/events/aracaju-hero-05.jpg',
+		alt: 'Participante com o copo do Cursor durante um meetup em Aracaju',
+	},
+	{
+		src: '/images/events/aracaju-hero-06.jpg',
+		alt: 'Camisetas do Cursor prontas para os participantes de um meetup em Aracaju',
+	},
+	{
+		src: '/images/events/aracaju-hero-07.jpg',
+		alt: 'Balcão de café durante um encontro da comunidade Cursor em Aracaju',
+	},
+];

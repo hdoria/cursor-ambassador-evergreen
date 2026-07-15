@@ -55,7 +55,9 @@ const ChaptersSection: React.FC = () => {
 			<h2 className="cursor-section-title mb-8 text-cursor-text">{t('chapters.heading')}</h2>
 
 			<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-				{chapters.map((chapter) => (
+				{[...chapters]
+					.sort((a, b) => a.city.localeCompare(b.city, 'pt-BR'))
+					.map((chapter) => (
 					<article key={chapter.slug} className={`${cardTile} relative p-5 group flex flex-col gap-4`}>
 						{chapter.state ? (
 							<img
@@ -123,7 +125,7 @@ const ChaptersSection: React.FC = () => {
 							) : null}
 						</div>
 					</article>
-				))}
+					))}
 			</div>
 		</section>
 	);

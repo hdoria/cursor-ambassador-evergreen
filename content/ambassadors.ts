@@ -2,19 +2,8 @@ import { Ambassador } from '@/lib/types';
 
 // Fotos de Instagram (og:image publico) sao 100px; trocar por fotos maiores
 // quando cada embaixador enviar. Organizadores por cidade: content/chapters.ts.
+// Ordem alfabetica por nome (pt-BR); a UI tambem ordena em AmbassadorSection.
 export const ambassadors: Ambassador[] = [
-	{
-		name: 'Hugo Dória',
-		role: 'Embaixador Cursor · Aracaju',
-		photo: '/images/ambassadors/hugo-doria-ig.jpg',
-		links: {
-			instagram: 'https://instagram.com/hdoria',
-			linkedin: 'https://linkedin.com/in/hdoria',
-			github: 'https://github.com/hdoria',
-			cursor: 'https://cursor.com/@hdoria',
-			website: 'https://hdoria.me',
-		},
-	},
 	{
 		name: 'Adrianno Esnarriaga',
 		role: 'Embaixador Cursor · Curitiba',
@@ -47,18 +36,20 @@ export const ambassadors: Ambassador[] = [
 		},
 	},
 	{
-		name: 'Guilherme Baldo Carlos',
-		role: 'Embaixador Cursor · Serra Gaúcha',
-		photo: '/images/ambassadors/guilherme-baldo.jpg',
+		name: 'Hugo Dória',
+		role: 'Embaixador Cursor · Aracaju',
+		photo: '/images/ambassadors/hugo-doria-ig.jpg',
 		links: {
-			instagram: 'https://instagram.com/bisbaldo',
-			linkedin: 'https://www.linkedin.com/in/guilhermebaldocarlos',
-			github: 'https://github.com/GuilhermeBaldo',
+			instagram: 'https://instagram.com/hdoria',
+			linkedin: 'https://linkedin.com/in/hdoria',
+			github: 'https://github.com/hdoria',
+			cursor: 'https://cursor.com/@hdoria',
+			website: 'https://hdoria.me',
 		},
 	},
 	{
 		name: 'Marcelo Barella',
-		role: 'Embaixador Cursor · Serra Gaúcha e Porto Alegre',
+		role: 'Embaixador Cursor · Passo Fundo, Porto Alegre e Serra Gaúcha',
 		photo: '/images/ambassadors/marcelo-barella.jpg',
 		links: {
 			instagram: 'https://instagram.com/_mbarella',

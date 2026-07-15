@@ -22,14 +22,6 @@ export const chapters: Chapter[] = [
 		website: 'https://www.cursorbh.com.br',
 	},
 	{
-		slug: 'serra-gaucha',
-		city: 'Serra Gaúcha',
-		state: 'RS',
-		organizers: [{ name: 'Marcelo Barella' }, { name: 'Gustavo Winter' }, { name: 'Guilherme Baldo Carlos' }],
-		lumaCalendarId: 'cal-2d4PGTKj40HnpEc',
-		lumaUrl: 'https://luma.com/cursor-serra-gaucha-brazil',
-	},
-	{
 		slug: 'curitiba',
 		city: 'Curitiba',
 		state: 'PR',
@@ -57,7 +49,7 @@ export const chapters: Chapter[] = [
 		slug: 'passo-fundo',
 		city: 'Passo Fundo',
 		state: 'RS',
-		organizers: [],
+		organizers: [{ name: 'Marcelo Barella' }],
 		lumaCalendarId: 'cal-I0BXpThHCuodHVZ',
 		lumaUrl: 'https://luma.com/cursor-passo-fundo-brazil',
 	},
@@ -102,5 +94,13 @@ export const chapters: Chapter[] = [
 		organizers: [{ name: 'Leo Antunes' }, { name: 'Rodrigo Silva' }],
 		lumaCalendarId: 'cal-7NlnR7M5Ew20s0e',
 		lumaUrl: 'https://luma.com/cursor-sao-paulo',
+	},
+	{
+		slug: 'serra-gaucha',
+		city: 'Serra Gaúcha',
+		state: 'RS',
+		organizers: [{ name: 'Gustavo Winter' }, { name: 'Marcelo Barella' }],
+		lumaCalendarId: 'cal-2d4PGTKj40HnpEc',
+		lumaUrl: 'https://luma.com/cursor-serra-gaucha-brazil',
 	},
 ];

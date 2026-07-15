@@ -65,7 +65,9 @@ const AmbassadorSection: React.FC = () => {
 			<h2 className="cursor-section-title mb-8 text-cursor-text">{t('ambassadors.heading')}</h2>
 
 			<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-				{ambassadors.map((ambassador) => {
+				{[...ambassadors]
+					.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
+					.map((ambassador) => {
 					const links = [
 						{ kind: 'x' as const, href: ambassador.links.x },
 						{ kind: 'instagram' as const, href: ambassador.links.instagram },

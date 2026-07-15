@@ -4,7 +4,7 @@ import { pastEvents as manualPastEvents, upcomingEvents as manualUpcomingEvents 
 import { siteConfig } from '@/content/site.config';
 import { fetchCalendarEvents, mapLumaEventToCursor, type LumaEventPeriod } from '@/lib/luma';
 
-const MAX_PAST_EVENTS = 8;
+const MAX_PAST_EVENTS = 12;
 const PAST_EVENTS_PER_CHAPTER = 3;
 
 export interface AggregatedEvents {

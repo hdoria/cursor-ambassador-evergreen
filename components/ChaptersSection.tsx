@@ -7,8 +7,8 @@ import { chapters } from '@/content/chapters';
 import { useI18n } from '@/lib/i18n';
 import { cardTile } from '@/components/ui';
 
-/** Bandeiras flat dos estados em /public/images/flags/{uf}.svg */
-const stateFlagSrc = (state: string) => `/images/flags/${state.toLowerCase()}.svg`;
+/** Bandeiras dos estados em /public/images/flags/{uf}.png (rasterizadas em 168px). */
+const stateFlagSrc = (state: string) => `/images/flags/${state.toLowerCase()}.png`;
 
 type BrandIconProps = {
 	iconPath: string;

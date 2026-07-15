@@ -15,10 +15,10 @@ import LumaCalendarSection from '@/components/LumaCalendar';
 import CommunityTweetsSection from '@/components/CommunityTweetsSection';
 import { siteConfig } from '@/content/site.config';
 import { chapters } from '@/content/chapters';
-import { pastEvents, upcomingEvents as manualUpcomingEvents } from '@/content/events';
+import { pastEvents as manualPastEvents, upcomingEvents as manualUpcomingEvents } from '@/content/events';
 import { worldEventPhotos } from '@/content/world-events';
 import ChaptersSection from '@/components/ChaptersSection';
-import { getAggregatedUpcomingEvents } from '@/lib/events-source';
+import { getAggregatedPastEvents, getAggregatedUpcomingEvents } from '@/lib/events-source';
 import type { CursorEvent } from '@/lib/types';
 import { MarketingColumn, MarketingGrid } from '@/components/layout/MarketingGrid';
 
@@ -86,11 +86,18 @@ export default async function Home() {
 	// A API do Luma nao e documentada; se tudo falhar, a home renderiza com os
 	// eventos manuais de content/events.ts e o build nunca quebra.
 	let upcoming: CursorEvent[] = manualUpcomingEvents;
+	let past: CursorEvent[] = manualPastEvents;
 	try {
 		const aggregated = await getAggregatedUpcomingEvents();
 		upcoming = aggregated.events;
 	} catch (error) {
-		console.error('[home] event aggregation failed, falling back to manual events', error);
+		console.error('[home] upcoming aggregation failed, falling back to manual events', error);
+	}
+	try {
+		const aggregated = await getAggregatedPastEvents();
+		past = aggregated.events;
+	} catch (error) {
+		console.error('[home] past aggregation failed, falling back to manual events', error);
 	}
 
 	return (
@@ -100,19 +107,19 @@ export default async function Home() {
 			<HeroHeaderServer />
 
 			<div className="py-20 md:py-28">
-				<GridSection>
-					<ChaptersSection />
-				</GridSection>
 				{upcoming.length > 0 ? (
 					<>
 						<GridSection>
-							<SectionDivider />
+							<UpcomingEvents events={upcoming} />
 						</GridSection>
 						<GridSection>
-							<UpcomingEvents events={upcoming} />
+							<SectionDivider />
 						</GridSection>
 					</>
 				) : null}
+				<GridSection>
+					<ChaptersSection />
+				</GridSection>
 				{siteConfig.sections.matchmaking ? (
 					<>
 						<GridSection>
@@ -136,13 +143,13 @@ export default async function Home() {
 				<GridSection>
 					<LumaCalendarSection />
 				</GridSection>
-				{pastEvents.length > 0 ? (
+				{past.length > 0 ? (
 					<>
 						<GridSection>
 							<SectionDivider />
 						</GridSection>
 						<GridSection>
-							<PastEvents />
+							<PastEvents events={past} />
 						</GridSection>
 					</>
 				) : null}

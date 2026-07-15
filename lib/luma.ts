@@ -28,13 +28,19 @@ function isLumaResponse(value: unknown): value is LumaGetItemsResponse {
 	return entries === undefined || Array.isArray(entries);
 }
 
-export async function fetchCalendarFutureEvents(calendarApiId: string): Promise<LumaApiEvent[]> {
-	const url = `${LUMA_GET_ITEMS_URL}?calendar_api_id=${encodeURIComponent(calendarApiId)}&period=future&pagination_limit=20`;
+export type LumaEventPeriod = 'future' | 'past';
+
+export async function fetchCalendarEvents(
+	calendarApiId: string,
+	period: LumaEventPeriod,
+	paginationLimit = 20,
+): Promise<LumaApiEvent[]> {
+	const url = `${LUMA_GET_ITEMS_URL}?calendar_api_id=${encodeURIComponent(calendarApiId)}&period=${period}&pagination_limit=${paginationLimit}`;
 
 	const response = await fetch(url, {
 		headers: { accept: 'application/json' },
 		signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-		next: { revalidate: REVALIDATE_SECONDS, tags: [`luma:${calendarApiId}`] },
+		next: { revalidate: REVALIDATE_SECONDS, tags: [`luma:${calendarApiId}:${period}`] },
 	});
 	if (!response.ok) {
 		throw new Error(`Luma ${calendarApiId} responded with HTTP ${response.status}`);
@@ -82,6 +88,7 @@ export function mapLumaEventToCursor(
 	lumaEvent: LumaApiEvent,
 	chapter: Chapter,
 	displayLocale: string,
+	status: CursorEvent['status'] = 'upcoming',
 ): CursorEvent | null {
 	if (!lumaEvent.name || !lumaEvent.start_at || !lumaEvent.url) return null;
 
@@ -96,7 +103,7 @@ export function mapLumaEventToCursor(
 		location: chapter.state ? `${chapter.city}, ${chapter.state}` : chapter.city,
 		lumaUrl: `https://luma.com/${lumaEvent.url}`,
 		thumbnail: lumaEvent.cover_url ?? undefined,
-		status: 'upcoming',
+		status,
 		host: { name: `Cursor ${chapter.city}`, logo: '/cursor-logo.svg', url: chapter.lumaUrl },
 	};
 }

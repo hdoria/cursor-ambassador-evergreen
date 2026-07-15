@@ -1,16 +1,20 @@
 import type { CursorEvent } from '@/lib/types';
 import { chapters } from '@/content/chapters';
-import { upcomingEvents as manualUpcomingEvents } from '@/content/events';
+import { pastEvents as manualPastEvents, upcomingEvents as manualUpcomingEvents } from '@/content/events';
 import { siteConfig } from '@/content/site.config';
-import { fetchCalendarFutureEvents, mapLumaEventToCursor } from '@/lib/luma';
+import { fetchCalendarEvents, mapLumaEventToCursor, type LumaEventPeriod } from '@/lib/luma';
 
-export interface AggregatedUpcomingEvents {
+const MAX_PAST_EVENTS = 8;
+const PAST_EVENTS_PER_CHAPTER = 3;
+
+export interface AggregatedEvents {
 	events: CursorEvent[];
 	errors: Array<{ chapterSlug: string; error: string }>;
 }
 
 // Entradas manuais em content/events.ts vencem as vindas do Luma, o que
-// permite curar titulo, thumbnail ou host de um evento sem perder o feed.
+// permite curar titulo, thumbnail, recapPath ou host de um evento sem perder
+// o feed automatico.
 function dedupeByLumaUrl(events: CursorEvent[]): CursorEvent[] {
 	const seenUrls = new Set<string>();
 	const deduped: CursorEvent[] = [];
@@ -27,21 +31,25 @@ function dedupeByLumaUrl(events: CursorEvent[]): CursorEvent[] {
 	return deduped;
 }
 
-export async function getAggregatedUpcomingEvents(): Promise<AggregatedUpcomingEvents> {
+async function aggregateFromLuma(
+	period: LumaEventPeriod,
+	status: CursorEvent['status'],
+	paginationLimit: number,
+): Promise<AggregatedEvents> {
 	const settled = await Promise.allSettled(
 		chapters.map(async (chapter) => {
-			const lumaEvents = await fetchCalendarFutureEvents(chapter.lumaCalendarId);
+			const lumaEvents = await fetchCalendarEvents(chapter.lumaCalendarId, period, paginationLimit);
 			return lumaEvents
-				.map((lumaEvent) => mapLumaEventToCursor(lumaEvent, chapter, siteConfig.defaultLocale))
+				.map((lumaEvent) => mapLumaEventToCursor(lumaEvent, chapter, siteConfig.defaultLocale, status))
 				.filter((event): event is CursorEvent => event !== null);
 		}),
 	);
 
-	const errors: AggregatedUpcomingEvents['errors'] = [];
-	const fromLuma: CursorEvent[] = [];
+	const errors: AggregatedEvents['errors'] = [];
+	const events: CursorEvent[] = [];
 	settled.forEach((result, index) => {
 		if (result.status === 'fulfilled') {
-			fromLuma.push(...result.value);
+			events.push(...result.value);
 		} else {
 			errors.push({
 				chapterSlug: chapters[index].slug,
@@ -51,12 +59,29 @@ export async function getAggregatedUpcomingEvents(): Promise<AggregatedUpcomingE
 	});
 
 	if (errors.length > 0) {
-		console.warn('[luma] partial calendar failures:', errors);
+		console.warn(`[luma] partial calendar failures (${period}):`, errors);
 	}
+
+	return { events, errors };
+}
+
+export async function getAggregatedUpcomingEvents(): Promise<AggregatedEvents> {
+	const { events: fromLuma, errors } = await aggregateFromLuma('future', 'upcoming', 20);
 
 	const events = dedupeByLumaUrl([...manualUpcomingEvents, ...fromLuma]).sort((a, b) =>
 		(a.date ?? '9999').localeCompare(b.date ?? '9999'),
 	);
+
+	return { events, errors };
+}
+
+export async function getAggregatedPastEvents(): Promise<AggregatedEvents> {
+	const { events: fromLuma, errors } = await aggregateFromLuma('past', 'past', PAST_EVENTS_PER_CHAPTER);
+
+	// Mais recentes primeiro; corta para a home nao virar um arquivo infinito.
+	const events = dedupeByLumaUrl([...manualPastEvents, ...fromLuma])
+		.sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
+		.slice(0, MAX_PAST_EVENTS);
 
 	return { events, errors };
 }

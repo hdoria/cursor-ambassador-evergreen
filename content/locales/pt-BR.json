@@ -3,6 +3,7 @@
 		"community": "Comunidade",
 		"events": "Eventos",
 		"recaps": "Recaps",
+		"chapters": "Capítulos",
 		"joinUs": "Participe"
 	},
 	"home": {
@@ -28,6 +29,16 @@
 		"hostedBy": "Realizado por",
 		"viewRecap": "Ver recap",
 		"viewSlides": "Ver slides"
+	},
+	"chapters": {
+		"eyebrow": "{count} capítulos pelo Brasil",
+		"heading": "Encontre seu capítulo",
+		"organizers": "Organizadores"
+	},
+	"aria": {
+		"chapterLuma": "Agenda do capítulo {city} no Luma",
+		"chapterWhatsapp": "WhatsApp do capítulo {city}",
+		"chapterInstagram": "Instagram do capítulo {city}"
 	},
 	"ambassadors": {
 		"title": "Embaixadores {communityName}",

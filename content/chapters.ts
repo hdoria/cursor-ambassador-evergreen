@@ -1,0 +1,96 @@
+import type { Chapter } from '@/lib/types';
+
+// Capitulos oficiais da comunidade Cursor no Brasil, em ordem alfabetica.
+// lumaCalendarId alimenta a agregacao de eventos (lib/events-source.ts).
+// lumaUrl e a pagina publica do calendario de cada cidade.
+export const chapters: Chapter[] = [
+	{
+		slug: 'aracaju',
+		city: 'Aracaju',
+		state: 'SE',
+		organizers: [{ name: 'Hugo Dória', url: 'https://hdoria.me' }],
+		lumaCalendarId: 'cal-ZN5lPCGvBUkWCnx',
+		lumaUrl: 'https://luma.com/cursor-aracaju-brazil',
+	},
+	{
+		slug: 'belo-horizonte',
+		city: 'Belo Horizonte',
+		state: 'MG',
+		organizers: [{ name: 'Pedro Ladeira' }, { name: 'Marlon Vidal' }, { name: 'Gabriel Cassimiro' }],
+		lumaCalendarId: 'cal-bGRtgq4iDgxawmm',
+		lumaUrl: 'https://luma.com/cursor-belo-horizonte',
+	},
+	{
+		slug: 'curitiba',
+		city: 'Curitiba',
+		state: 'PR',
+		organizers: [{ name: 'Bruno Favero' }, { name: 'Enzo Enrico' }, { name: 'Adrianno Esnarriaga' }],
+		lumaCalendarId: 'cal-8ldgPKJHvKkp9nm',
+		lumaUrl: 'https://luma.com/cursor-curitiba',
+	},
+	{
+		slug: 'florianopolis',
+		city: 'Florianópolis',
+		state: 'SC',
+		organizers: [{ name: 'Alex Ferrari' }, { name: 'Christian Rios' }],
+		lumaCalendarId: 'cal-AReTBF17bCY9Kr5',
+		lumaUrl: 'https://luma.com/cursor-florianpolis',
+	},
+	{
+		slug: 'goiania',
+		city: 'Goiânia',
+		state: 'GO',
+		organizers: [{ name: 'Felipe R.' }, { name: 'Guilherme Carlos' }],
+		lumaCalendarId: 'cal-1oJAXC7KiAcRwtT',
+		lumaUrl: 'https://luma.com/cursor-goi-nia-brazil',
+	},
+	{
+		slug: 'passo-fundo',
+		city: 'Passo Fundo',
+		state: 'RS',
+		organizers: [{ name: 'Marcelo Barella' }],
+		lumaCalendarId: 'cal-I0BXpThHCuodHVZ',
+		lumaUrl: 'https://luma.com/cursor-passo-fundo-brazil',
+	},
+	{
+		slug: 'porto-alegre',
+		city: 'Porto Alegre',
+		state: 'RS',
+		organizers: [{ name: 'Marlon Vidal' }, { name: 'Gustavo Winter' }],
+		lumaCalendarId: 'cal-w0r3mjETqEGLAFH',
+		lumaUrl: 'https://luma.com/cursor-porto-alegre-brazil',
+	},
+	{
+		slug: 'recife',
+		city: 'Recife',
+		state: 'PE',
+		organizers: [{ name: 'Alê' }],
+		lumaCalendarId: 'cal-MPrcAvv13tS2s7u',
+		lumaUrl: 'https://luma.com/cursor-recife-brazil',
+	},
+	{
+		slug: 'rio-de-janeiro',
+		city: 'Rio de Janeiro',
+		state: 'RJ',
+		organizers: [{ name: 'Rodrigo Silva' }, { name: 'Arthur Castro' }],
+		lumaCalendarId: 'cal-3n8qWnSHTkv6AOw',
+		// Calendario ainda sem slug publico no Luma; URL de fallback funciona.
+		lumaUrl: 'https://luma.com/calendar/cal-3n8qWnSHTkv6AOw',
+	},
+	{
+		slug: 'salvador',
+		city: 'Salvador',
+		state: 'BA',
+		organizers: [{ name: 'Beni Bauer' }],
+		lumaCalendarId: 'cal-BoFzAAmfdAK1Fw6',
+		lumaUrl: 'https://luma.com/cursor-salvador-brazil',
+	},
+	{
+		slug: 'sao-paulo',
+		city: 'São Paulo',
+		state: 'SP',
+		organizers: [{ name: 'Leo Antunes' }, { name: 'Rodrigo Silva' }],
+		lumaCalendarId: 'cal-7NlnR7M5Ew20s0e',
+		lumaUrl: 'https://luma.com/cursor-sao-paulo',
+	},
+];

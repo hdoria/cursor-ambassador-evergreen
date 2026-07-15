@@ -3,6 +3,7 @@
 		"community": "Community",
 		"events": "Events",
 		"recaps": "Recaps",
+		"chapters": "Chapters",
 		"joinUs": "Join us"
 	},
 	"home": {
@@ -28,6 +29,16 @@
 		"hostedBy": "Hosted by",
 		"viewRecap": "View recap",
 		"viewSlides": "View slides"
+	},
+	"chapters": {
+		"eyebrow": "{count} chapters across Brazil",
+		"heading": "Find your chapter",
+		"organizers": "Organizers"
+	},
+	"aria": {
+		"chapterLuma": "{city} chapter calendar on Luma",
+		"chapterWhatsapp": "{city} chapter WhatsApp",
+		"chapterInstagram": "{city} chapter Instagram"
 	},
 	"ambassadors": {
 		"title": "{communityName} ambassadors",

@@ -11,6 +11,7 @@ import { MarketingColumn, MarketingGrid } from '@/components/layout/MarketingGri
 import { siteConfig } from '@/content/site.config';
 
 const NAV_LINKS = [
+	{ href: '/#chapters', sectionId: 'chapters', key: 'nav.chapters' },
 	{ href: '/#community', sectionId: 'community', key: 'nav.community' },
 	{ href: '/#events', sectionId: 'events', key: 'nav.events' },
 	{ href: '/#recaps', sectionId: 'recaps', key: 'nav.recaps' },
@@ -24,7 +25,7 @@ function useScrollState() {
 		const handleScroll = () => {
 			setScrolled(window.scrollY > 20);
 
-			const sections = ['community', 'events', 'recaps'];
+			const sections = ['chapters', 'community', 'events', 'recaps'];
 			let current: string | null = null;
 			for (const id of sections) {
 				const el = document.getElementById(id);

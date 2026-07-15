@@ -30,6 +30,24 @@ export interface Ambassador {
 	links: SocialLinks;
 }
 
+export interface ChapterOrganizer {
+	name: string;
+	url?: string;
+}
+
+export interface Chapter {
+	slug: string;
+	city: string;
+	state?: string;
+	organizers: ChapterOrganizer[];
+	/** Luma calendar api id (cal-...), used by the server-side event aggregation. */
+	lumaCalendarId: string;
+	/** Public Luma calendar page for the chapter. */
+	lumaUrl: string;
+	whatsapp?: string;
+	instagram?: string;
+}
+
 export interface Partner {
 	name: string;
 	logo: string;

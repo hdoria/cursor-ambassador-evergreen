@@ -33,10 +33,6 @@ export const headerPhotoPool: BentoImage[] = [
 		alt: 'Palestrante no workshop da comunidade Cursor em Canela',
 	},
 	{
-		src: '/images/events/floripa-hero-01.jpg',
-		alt: 'Plateia acompanhando apresentação no Cafe Cursor em Florianópolis',
-	},
-	{
 		src: '/images/events/floripa-hero-02.jpg',
 		alt: 'Foto de grupo da comunidade Cursor em um encontro em Florianópolis',
 	},

@@ -47,6 +47,18 @@ export const events: CursorEvent[] = [
 		status: 'past',
 	},
 	{
+		id: 'cursor-meetup-floripa-ufsc-2026-07-03',
+		title: 'Cursor Florianópolis Meetup UFSC',
+		date: '2026-07-03',
+		displayDate: '3 de julho de 2026',
+		location: 'Florianópolis, SC',
+		lumaUrl: 'https://luma.com/cursor-54mb',
+		thumbnail: '/images/events/floripa-2026-07-01.jpg',
+		galleryImages: ['/images/events/floripa-2026-07-02.jpg', '/images/events/floripa-2026-07-03.jpg'],
+		host: { name: 'Cursor Florianópolis', logo: '/cursor-logo.svg', url: 'https://luma.com/cursor-florianpolis' },
+		status: 'past',
+	},
+	{
 		id: 'cursor-workshop-canela-2026-07-10',
 		title: 'Cursor Workshop - Canela',
 		date: '2026-07-10',

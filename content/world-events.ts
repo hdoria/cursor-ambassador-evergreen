@@ -21,4 +21,10 @@ export const worldEventPhotos: WorldEventPhoto[] = [
 		date: 'Maio de 2026',
 		alt: 'Participantes conversando no Cursor Meetup São Paulo',
 	},
+	{
+		src: '/images/events/floripa-world-01.jpg',
+		location: 'Florianópolis',
+		date: 'Janeiro de 2026',
+		alt: 'Participantes programando juntos no Cafe Cursor em Florianópolis',
+	},
 ];

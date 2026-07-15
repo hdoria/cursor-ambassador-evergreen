@@ -14,6 +14,7 @@ import PhotoDisclaimer from '@/components/PhotoDisclaimer';
 import LumaCalendarSection from '@/components/LumaCalendar';
 import CommunityTweetsSection from '@/components/CommunityTweetsSection';
 import { siteConfig } from '@/content/site.config';
+import { chapters } from '@/content/chapters';
 import { pastEvents, upcomingEvents as manualUpcomingEvents } from '@/content/events';
 import { worldEventPhotos } from '@/content/world-events';
 import ChaptersSection from '@/components/ChaptersSection';
@@ -29,6 +30,21 @@ function buildHomeJsonLd(upcomingEvents: CursorEvent[]) {
 		'@type': 'Organization',
 		name: siteConfig.communityName,
 		url: siteConfig.cursorCommunityUrl,
+		sameAs: ['https://x.com/cursor_ai'],
+	};
+
+	const chapterList = {
+		'@type': 'ItemList',
+		name: 'Capítulos Cursor no Brasil',
+		itemListElement: chapters.map((chapter, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			item: {
+				'@type': 'Organization',
+				name: `Cursor ${chapter.city}`,
+				url: chapter.lumaUrl,
+			},
+		})),
 	};
 
 	const eventItems = upcomingEvents
@@ -49,7 +65,7 @@ function buildHomeJsonLd(upcomingEvents: CursorEvent[]) {
 
 	return {
 		'@context': 'https://schema.org',
-		'@graph': [org, ...eventItems],
+		'@graph': [org, chapterList, ...eventItems],
 	};
 }
 

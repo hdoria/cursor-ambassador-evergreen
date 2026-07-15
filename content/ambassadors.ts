@@ -36,7 +36,7 @@ export const ambassadors: Ambassador[] = [
 	},
 	{
 		name: 'Gustavo Winter',
-		role: 'Embaixador Cursor · Porto Alegre',
+		role: 'Embaixador Cursor · Porto Alegre e Serra Gaúcha',
 		photo: '/images/ambassadors/gustavo-winter.jpg',
 		links: {
 			x: 'https://x.com/gwinterxAI',

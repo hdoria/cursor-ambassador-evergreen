@@ -25,7 +25,7 @@ export const chapters: Chapter[] = [
 		slug: 'serra-gaucha',
 		city: 'Serra Gaúcha',
 		state: 'RS',
-		organizers: [{ name: 'Marcelo Barella' }],
+		organizers: [{ name: 'Marcelo Barella' }, { name: 'Gustavo Winter' }],
 		lumaCalendarId: 'cal-2d4PGTKj40HnpEc',
 		lumaUrl: 'https://luma.com/cursor-serra-gaucha-brazil',
 	},

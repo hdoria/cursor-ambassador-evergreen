@@ -16,9 +16,9 @@ export const worldEventPhotos: WorldEventPhoto[] = [
 		alt: 'Palestrante no workshop da comunidade Cursor em Canela',
 	},
 	{
-		src: '/images/events/canela-2026-07-02.jpg',
-		location: 'Canela',
-		date: 'Julho de 2026',
-		alt: 'Convidado respondendo perguntas no workshop Cursor em Canela',
+		src: '/images/events/sp-world-01.jpg',
+		location: 'São Paulo',
+		date: 'Maio de 2026',
+		alt: 'Participantes conversando no Cursor Meetup São Paulo',
 	},
 ];

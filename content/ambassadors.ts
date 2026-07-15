@@ -6,7 +6,7 @@ export const ambassadors: Ambassador[] = [
 	{
 		name: 'Hugo Dória',
 		role: 'Embaixador Cursor · Aracaju',
-		photo: '/images/ambassadors/hugo-doria.jpg',
+		photo: '/images/ambassadors/hugo-doria-ig.jpg',
 		links: {
 			instagram: 'https://instagram.com/hdoria',
 			linkedin: 'https://linkedin.com/in/hdoria',

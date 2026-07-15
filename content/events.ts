@@ -35,6 +35,18 @@ export const events: CursorEvent[] = [
 		status: 'past',
 	},
 	{
+		id: 'cafe-cursor-aracaju-2026-05-02',
+		title: 'Cafe Cursor Aracaju',
+		date: '2026-05-02',
+		displayDate: '2 de maio de 2026',
+		location: 'Aracaju, SE',
+		lumaUrl: 'https://luma.com/7yj1r58x',
+		thumbnail: '/images/events/aracaju-2026-05-01.jpg',
+		galleryImages: ['/images/events/aracaju-2026-05-02.jpg', '/images/events/aracaju-2026-05-03.jpg'],
+		host: { name: 'Cursor Aracaju', logo: '/cursor-logo.svg', url: 'https://luma.com/cursor-aracaju-brazil' },
+		status: 'past',
+	},
+	{
 		id: 'cursor-meetup-floripa-2026-04-27',
 		title: 'Cursor Meetup Florianópolis',
 		date: '2026-04-27',

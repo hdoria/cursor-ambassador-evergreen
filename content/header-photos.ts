@@ -13,8 +13,8 @@ export const headerPhotoPool: BentoImage[] = [
 		alt: 'Participantes trabalhando juntos em um meetup Cursor em Aracaju',
 	},
 	{
-		src: '/images/events/aracaju-hero-03.jpg',
-		alt: 'Plateia acompanhando uma sessão no meetup Cursor de Aracaju',
+		src: '/images/events/canela-hero-03.jpg',
+		alt: 'Palestrante respondendo perguntas no workshop Cursor em Canela',
 	},
 	{
 		src: '/images/events/aracaju-hero-04.jpg',

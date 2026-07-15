@@ -2,17 +2,22 @@
 
 import React from 'react';
 import Image from 'next/image';
+import type { CursorEvent } from '@/lib/types';
 import { useI18n } from '@/lib/i18n';
 import { siteConfig } from '@/content/site.config';
-import { upcomingEvents } from '@/content/events';
 import Partners from '@/components/Partners';
 import { Button, TextLink } from '@/components/ui';
 import { MarketingColumn, MarketingGrid } from '@/components/layout/MarketingGrid';
 
-const Footer: React.FC = () => {
+type FooterProps = {
+	upcomingEvents?: CursorEvent[];
+};
+
+const Footer: React.FC<FooterProps> = ({ upcomingEvents = [] }) => {
 	const { t } = useI18n();
 	const nextEvent = upcomingEvents[0];
 	const joinUrl = nextEvent?.lumaUrl ?? siteConfig.lumaUrl;
+	const joinIsExternal = joinUrl.startsWith('http');
 
 	return (
 		<footer className="border-t border-cursor-border py-10">
@@ -33,7 +38,7 @@ const Footer: React.FC = () => {
 								<span className="text-sm text-cursor-text-muted">{siteConfig.communityNameLocal}</span>
 							</div>
 							<div className="flex flex-wrap gap-x-5 gap-y-2">
-								<TextLink href={siteConfig.lumaUrl} external muted>
+								<TextLink href="/#events" muted>
 									{t('footer.allEvents')}
 								</TextLink>
 								<TextLink href={siteConfig.cursorCommunityUrl} external muted>
@@ -46,9 +51,9 @@ const Footer: React.FC = () => {
 							<p className="mt-4 text-xs text-cursor-text-faint">{siteConfig.footerTagline || t('footer.madeWith')}</p>
 						</div>
 
-						<Button href={joinUrl} external variant="primary" size="md">
+						<Button href={joinUrl} external={joinIsExternal || undefined} variant="primary" size="md">
 							{t('footer.joinNext')}
-							<span aria-hidden="true">↗</span>
+							{joinIsExternal ? <span aria-hidden="true">↗</span> : null}
 						</Button>
 					</div>
 				</MarketingColumn>

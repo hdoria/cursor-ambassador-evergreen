@@ -14,10 +14,15 @@ import PhotoDisclaimer from '@/components/PhotoDisclaimer';
 import LumaCalendarSection from '@/components/LumaCalendar';
 import CommunityTweetsSection from '@/components/CommunityTweetsSection';
 import { siteConfig } from '@/content/site.config';
-import { upcomingEvents } from '@/content/events';
+import { upcomingEvents as manualUpcomingEvents } from '@/content/events';
+import { getAggregatedUpcomingEvents } from '@/lib/events-source';
+import type { CursorEvent } from '@/lib/types';
 import { MarketingColumn, MarketingGrid } from '@/components/layout/MarketingGrid';
 
-function buildHomeJsonLd() {
+// Revalida a home a cada hora para puxar eventos novos dos calendarios Luma.
+export const revalidate = 3600;
+
+function buildHomeJsonLd(upcomingEvents: CursorEvent[]) {
 	const org = {
 		'@type': 'Organization',
 		name: siteConfig.communityName,
@@ -59,76 +64,86 @@ function GridSection({ children, width = 'wide' }: GridSectionProps) {
 	);
 }
 
-const Home: React.FC = () => (
-	<main className="min-h-screen scroll-smooth bg-cursor-bg text-cursor-text">
-		<JsonLd data={buildHomeJsonLd()} />
-		<Navbar />
-		<HeroHeaderServer />
+export default async function Home() {
+	// A API do Luma nao e documentada; se tudo falhar, a home renderiza com os
+	// eventos manuais de content/events.ts e o build nunca quebra.
+	let upcoming: CursorEvent[] = manualUpcomingEvents;
+	try {
+		const aggregated = await getAggregatedUpcomingEvents();
+		upcoming = aggregated.events;
+	} catch (error) {
+		console.error('[home] event aggregation failed, falling back to manual events', error);
+	}
 
-		<div className="py-20 md:py-28">
-			<GridSection>
-				<AmbassadorSection />
-			</GridSection>
-			<GridSection>
-				<SectionDivider />
-			</GridSection>
-			<GridSection width="reading">
-				<FeaturedSection />
-			</GridSection>
-			<GridSection>
-				<SectionDivider />
-			</GridSection>
-			<GridSection>
-				<UpcomingEvents />
-			</GridSection>
-			{siteConfig.sections.matchmaking ? (
-				<>
-					<GridSection width="reading">
-						<MatchmakingSection />
-					</GridSection>
-					<GridSection>
-						<SectionDivider />
-					</GridSection>
-				</>
-			) : null}
-			{siteConfig.sections.photoDisclaimer ? (
-				<>
-					<GridSection width="reading">
-						<PhotoDisclaimer />
-					</GridSection>
-					<GridSection>
-						<SectionDivider />
-					</GridSection>
-				</>
-			) : null}
-			<GridSection>
-				<LumaCalendarSection />
-			</GridSection>
-			<GridSection>
-				<SectionDivider />
-			</GridSection>
-			<GridSection>
-				<PastEvents />
-			</GridSection>
-			{siteConfig.sections.communityTweets ? (
-				<>
-					<GridSection>
-						<SectionDivider />
-					</GridSection>
-					<GridSection>
-						<CommunityTweetsSection />
-					</GridSection>
-				</>
-			) : null}
-			<GridSection>
-				<SectionDivider />
-			</GridSection>
-			<GridSection>
-				<GlobalEvents />
-			</GridSection>
-		</div>
-		<Footer />
-	</main>
-);
+	return (
+		<main className="min-h-screen scroll-smooth bg-cursor-bg text-cursor-text">
+			<JsonLd data={buildHomeJsonLd(upcoming)} />
+			<Navbar joinHref={upcoming[0]?.lumaUrl ?? siteConfig.lumaUrl} />
+			<HeroHeaderServer />
 
-export default Home;
+			<div className="py-20 md:py-28">
+				<GridSection>
+					<AmbassadorSection />
+				</GridSection>
+				<GridSection>
+					<SectionDivider />
+				</GridSection>
+				<GridSection width="reading">
+					<FeaturedSection />
+				</GridSection>
+				<GridSection>
+					<SectionDivider />
+				</GridSection>
+				<GridSection>
+					<UpcomingEvents events={upcoming} />
+				</GridSection>
+				{siteConfig.sections.matchmaking ? (
+					<>
+						<GridSection width="reading">
+							<MatchmakingSection />
+						</GridSection>
+						<GridSection>
+							<SectionDivider />
+						</GridSection>
+					</>
+				) : null}
+				{siteConfig.sections.photoDisclaimer ? (
+					<>
+						<GridSection width="reading">
+							<PhotoDisclaimer />
+						</GridSection>
+						<GridSection>
+							<SectionDivider />
+						</GridSection>
+					</>
+				) : null}
+				<GridSection>
+					<LumaCalendarSection />
+				</GridSection>
+				<GridSection>
+					<SectionDivider />
+				</GridSection>
+				<GridSection>
+					<PastEvents />
+				</GridSection>
+				{siteConfig.sections.communityTweets ? (
+					<>
+						<GridSection>
+							<SectionDivider />
+						</GridSection>
+						<GridSection>
+							<CommunityTweetsSection />
+						</GridSection>
+					</>
+				) : null}
+				<GridSection>
+					<SectionDivider />
+				</GridSection>
+				<GridSection>
+					<GlobalEvents />
+				</GridSection>
+			</div>
+			<Footer upcomingEvents={upcoming} />
+		</main>
+	);
+}

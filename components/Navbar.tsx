@@ -46,10 +46,16 @@ function useScrollState() {
 	return { scrolled, activeSection };
 }
 
-export default function Navbar() {
+type NavbarProps = {
+	/** CTA do botao "Participe"; aceita URL externa ou ancora interna. */
+	joinHref?: string;
+};
+
+export default function Navbar({ joinHref = siteConfig.lumaUrl }: NavbarProps) {
 	const { t } = useI18n();
 	const { scrolled, activeSection } = useScrollState();
 	const [mobileOpen, setMobileOpen] = useState(false);
+	const joinIsExternal = joinHref.startsWith('http');
 
 	const closeMobile = useCallback(() => setMobileOpen(false), []);
 
@@ -109,13 +115,13 @@ export default function Navbar() {
 								);
 							})}
 							<LanguageToggle />
-							<Button href={siteConfig.lumaUrl} external variant="primary" size="sm">
+							<Button href={joinHref} external={joinIsExternal || undefined} variant="primary" size="sm">
 								{t('nav.joinUs')}
 							</Button>
 						</div>
 
 						<div className="flex items-center gap-2 sm:hidden">
-							<Button href={siteConfig.lumaUrl} external variant="primary" size="sm">
+							<Button href={joinHref} external={joinIsExternal || undefined} variant="primary" size="sm">
 								{t('nav.joinUs')}
 							</Button>
 							<button

@@ -14,7 +14,7 @@ export const events: CursorEvent[] = [
 		location: 'Aracaju, SE',
 		lumaUrl: 'https://luma.com/cursor-kviw',
 		thumbnail: '/images/events/aracaju-2026-07-01.jpg',
-		galleryImages: ['/images/events/aracaju-2026-07-02.jpg', '/images/events/aracaju-2026-07-03.jpg'],
+		galleryImages: ['/images/events/aracaju-2026-07-02.jpg', '/images/events/aracaju-2026-07-04.jpg'],
 		host: { name: 'Cursor Aracaju', logo: '/cursor-logo.svg', url: 'https://luma.com/cursor-aracaju-brazil' },
 		status: 'past',
 	},

@@ -18,7 +18,7 @@ function formatDate(date: string, locale: string) {
 	}).format(parsed);
 }
 
-export function groupEventsByDate(events: CursorEvent[], locale = 'en'): EventDateGroup[] {
+export function groupEventsByDate(events: CursorEvent[], locale: string): EventDateGroup[] {
 	const groups = new Map<string, CursorEvent[]>();
 
 	for (const event of [...events].sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''))) {

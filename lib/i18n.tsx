@@ -44,7 +44,10 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({ children }) => {
 
 	const t = (key: string, params?: Record<string, string>): string => {
 		const keys = key.split('.');
-		const activeTranslations = TRANSLATION_BUNDLES_BY_LOCALE[locale] ?? TRANSLATION_BUNDLES_BY_LOCALE.en;
+		const activeTranslations =
+			TRANSLATION_BUNDLES_BY_LOCALE[locale] ??
+			TRANSLATION_BUNDLES_BY_LOCALE[siteConfig.defaultLocale] ??
+			TRANSLATION_BUNDLES_BY_LOCALE.en;
 
 		let value: string | TranslationTree | undefined = activeTranslations;
 		for (const k of keys) {

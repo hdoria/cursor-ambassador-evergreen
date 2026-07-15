@@ -1,0 +1,87 @@
+{
+	"nav": {
+		"community": "Comunidade",
+		"events": "Eventos",
+		"recaps": "Recaps",
+		"joinUs": "Participe"
+	},
+	"home": {
+		"heroEyebrow": "Comunidade Cursor · {city}",
+		"heroHeading": "A comunidade Cursor no Brasil",
+		"heroDescription": "Encontre builders perto de você, aprenda workflows práticos e construa software ambicioso com o Cursor.",
+		"exploreEvents": "Ver próximos eventos",
+		"joinCommunity": "Entrar no Luma",
+		"featured": "Destaque",
+		"upcomingEvents": "Próximos eventos",
+		"upcomingHeading": "O que vem aí",
+		"register": "Inscreva-se",
+		"comingSoon": "Em breve",
+		"lumaCalendar": "Calendário",
+		"lumaCalendarHeading": "Todas as próximas datas",
+		"pastEvents": "Eventos passados",
+		"pastEventsHeading": "Recaps dos eventos",
+		"communityTweets": "Da comunidade",
+		"communityTweetsHeading": "No X",
+		"communityTweetsLoadMore": "Carregar mais",
+		"communityTweetsBrowseX": "Ver no X",
+		"attendees": "{count} participantes",
+		"hostedBy": "Realizado por",
+		"viewRecap": "Ver recap",
+		"viewSlides": "Ver slides"
+	},
+	"ambassadors": {
+		"title": "Embaixadores {communityName}",
+		"heading": "Quem organiza"
+	},
+	"footer": {
+		"hostingPartners": "Parceiros anfitriões",
+		"community": "Cursor Community",
+		"allEvents": "Todos os eventos",
+		"madeWith": "Feito com Cursor por embaixadores pelo Brasil",
+		"joinNext": "Participar do próximo evento",
+		"followUs": "Siga o Cursor no X"
+	},
+	"featured": {
+		"defaultDescription": "Slides, guias e materiais compartilhados pela comunidade Cursor no Brasil."
+	},
+	"recap": {
+		"backToEvents": "Voltar aos eventos",
+		"speakers": "Palestrantes",
+		"projects": "Projetos apresentados",
+		"highlights": "Feedback da comunidade",
+		"resources": "Recursos",
+		"by": "por",
+		"galleryTitle": "Fotos",
+		"gallerySubtitle": "{count} fotos do evento",
+		"openPhoto": "Abrir foto {index}",
+		"closeGallery": "Fechar galeria",
+		"prevPhoto": "Foto anterior",
+		"nextPhoto": "Próxima foto",
+		"photoLabel": "Foto {index} de {total}"
+	},
+	"photos": {
+		"title": "Sobre as fotos",
+		"description": "Vamos tirar fotos e gravar vídeos durante o evento pra redes sociais e conteúdo da comunidade Cursor.",
+		"preference": "Se você prefere não aparecer:",
+		"option1": "Avise a organização quando chegar",
+		"option2": "Vamos respeitar sua preferência",
+		"thanks": "Valeu pela compreensão."
+	},
+	"matchmaking": {
+		"title": "Quer conhecer gente nova?",
+		"howItWorks": "Como funciona",
+		"step1": "Passe na mesa da organização e pegue um {numberCard} (1 a 10)",
+		"step2": "Encontre quem pegou {sameNumber}",
+		"step3": "Sentem juntos pra trabalhar lado a lado",
+		"iceBreakers": "Quebra-gelo",
+		"question1": "\"Você já usou o Cursor?\"",
+		"question2": "\"Tá construindo algo legal com o Cursor?\"",
+		"question3": "\"Qual sua feature favorita do Cursor?\"",
+		"numberCard": "cartão com um número aleatório",
+		"sameNumber": "o mesmo número"
+	},
+	"worldEvents": {
+		"title": "Cursor pelo Brasil",
+		"description": "De Aracaju a Porto Alegre, tem gente construindo com o Cursor no país inteiro. Cada cidade tem seus encontros e todo mundo faz parte da mesma comunidade."
+	}
+}

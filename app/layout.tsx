@@ -11,6 +11,10 @@ const description =
 	siteConfig.description ||
 	`Cursor meetups and workshops in ${siteConfig.city}, ${siteConfig.country}.`;
 const ogImage = siteConfig.ogImage || '/og.jpg';
+const OG_LOCALE_BY_DEFAULT_LOCALE: Record<string, string> = {
+	'pt-BR': 'pt_BR',
+	en: 'en_US',
+};
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
@@ -28,13 +32,13 @@ export const metadata: Metadata = {
 		type: 'website',
 		url: siteUrl,
 		siteName: siteConfig.communityName,
-		locale: siteConfig.defaultLocale === 'en' ? 'en_US' : siteConfig.defaultLocale,
+		locale: OG_LOCALE_BY_DEFAULT_LOCALE[siteConfig.defaultLocale] ?? siteConfig.defaultLocale,
 		images: [
 			{
 				url: ogImage,
 				width: 1200,
 				height: 630,
-				alt: `${siteConfig.communityName} in ${siteConfig.city}`,
+				alt: siteConfig.communityName,
 			},
 		],
 	},

@@ -11,9 +11,9 @@ export const siteConfig = {
 	cursorCommunityUrl: 'https://cursor.com/community',
 	defaultLocale: 'pt-BR',
 	locales: ['pt-BR', 'en'],
-	footerTagline: 'Feito com Cursor por embaixadores em 11 cidades do Brasil',
+	footerTagline: 'Feito com Cursor por embaixadores em 12 cidades do Brasil',
 	/** Short site description for <meta>, Open Graph, and Twitter cards. Keep it concrete. */
-	description: 'Meetups, workshops e recaps da comunidade Cursor no Brasil. 11 capítulos, de Aracaju a Porto Alegre.',
+	description: 'Meetups, workshops e recaps da comunidade Cursor no Brasil. 12 capítulos, de Aracaju a Porto Alegre.',
 	/** Path under /public for the default 1200×630 share image. */
 	ogImage: '/og.jpg',
 	sections: {

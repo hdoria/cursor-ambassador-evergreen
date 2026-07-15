@@ -18,6 +18,7 @@ export interface CursorEvent {
 
 export interface SocialLinks {
 	x?: string;
+	instagram?: string;
 	linkedin?: string;
 	github?: string;
 	website?: string;
@@ -45,6 +46,8 @@ export interface Chapter {
 	lumaCalendarId: string;
 	/** Public Luma calendar page for the chapter. */
 	lumaUrl: string;
+	/** Site proprio do capitulo, quando existir (ex.: cursorpoa.com.br). */
+	website?: string;
 	whatsapp?: string;
 	instagram?: string;
 }

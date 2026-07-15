@@ -19,6 +19,15 @@ export const chapters: Chapter[] = [
 		organizers: [{ name: 'Pedro Ladeira' }, { name: 'Marlon Vidal' }, { name: 'Gabriel Cassimiro' }],
 		lumaCalendarId: 'cal-bGRtgq4iDgxawmm',
 		lumaUrl: 'https://luma.com/cursor-belo-horizonte',
+		website: 'https://www.cursorbh.com.br',
+	},
+	{
+		slug: 'canela',
+		city: 'Canela',
+		state: 'RS',
+		organizers: [],
+		lumaCalendarId: 'cal-2d4PGTKj40HnpEc',
+		lumaUrl: 'https://luma.com/cursor-canela-brazil',
 	},
 	{
 		slug: 'curitiba',
@@ -59,6 +68,7 @@ export const chapters: Chapter[] = [
 		organizers: [{ name: 'Marlon Vidal' }, { name: 'Gustavo Winter' }],
 		lumaCalendarId: 'cal-w0r3mjETqEGLAFH',
 		lumaUrl: 'https://luma.com/cursor-porto-alegre-brazil',
+		website: 'https://www.cursorpoa.com.br',
 	},
 	{
 		slug: 'recife',

@@ -39,6 +39,7 @@
 	},
 	"aria": {
 		"chapterLuma": "Agenda do capítulo {city} no Luma",
+		"chapterWebsite": "Site do capítulo {city}",
 		"chapterWhatsapp": "WhatsApp do capítulo {city}",
 		"chapterInstagram": "Instagram do capítulo {city}",
 		"toggleMenu": "Abrir ou fechar o menu",

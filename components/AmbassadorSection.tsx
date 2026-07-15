@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Globe, Linkedin } from 'lucide-react';
-import { siGithub, siX } from 'simple-icons';
+import { siGithub, siInstagram, siX } from 'simple-icons';
 import { ambassadors } from '@/content/ambassadors';
 import { siteConfig } from '@/content/site.config';
 import { useI18n } from '@/lib/i18n';
@@ -22,11 +22,12 @@ const BrandIcon: React.FC<BrandIconProps> = ({ iconPath }) => {
 };
 
 type SocialIconProps = {
-	kind: 'x' | 'linkedin' | 'github' | 'website';
+	kind: 'x' | 'instagram' | 'linkedin' | 'github' | 'website';
 };
 
 const SocialIcon: React.FC<SocialIconProps> = ({ kind }) => {
 	if (kind === 'x') return <BrandIcon iconPath={siX.path} />;
+	if (kind === 'instagram') return <BrandIcon iconPath={siInstagram.path} />;
 	if (kind === 'linkedin') return <Linkedin className="w-4 h-4" />;
 	if (kind === 'github') return <BrandIcon iconPath={siGithub.path} />;
 	return <Globe className="w-4 h-4" />;
@@ -55,6 +56,7 @@ const AmbassadorSection: React.FC = () => {
 				{ambassadors.map((ambassador) => {
 					const links = [
 						{ kind: 'x' as const, href: ambassador.links.x },
+						{ kind: 'instagram' as const, href: ambassador.links.instagram },
 						{ kind: 'linkedin' as const, href: ambassador.links.linkedin },
 						{ kind: 'github' as const, href: ambassador.links.github },
 						{ kind: 'website' as const, href: ambassador.links.website },

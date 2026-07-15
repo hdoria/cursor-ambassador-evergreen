@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Calendar } from 'lucide-react';
+import { Calendar, Globe } from 'lucide-react';
 import { siInstagram, siWhatsapp } from 'simple-icons';
 import { chapters } from '@/content/chapters';
 import { useI18n } from '@/lib/i18n';
@@ -62,7 +62,7 @@ const ChaptersSection: React.FC = () => {
 						</header>
 
 						<div>
-							<p className="cursor-eyebrow mb-1">{t('chapters.organizers')}</p>
+							{chapter.organizers.length > 0 ? <p className="cursor-eyebrow mb-1">{t('chapters.organizers')}</p> : null}
 							<ul className="text-sm text-cursor-text-secondary">
 								{chapter.organizers.map((organizer) => (
 									<li key={organizer.name}>
@@ -88,6 +88,12 @@ const ChaptersSection: React.FC = () => {
 								<Calendar className="w-4 h-4" aria-hidden="true" />
 								Luma
 							</ChapterLink>
+							{chapter.website ? (
+								<ChapterLink href={chapter.website} ariaLabel={t('aria.chapterWebsite', { city: chapter.city })}>
+									<Globe className="w-4 h-4" aria-hidden="true" />
+									Site
+								</ChapterLink>
+							) : null}
 							{chapter.whatsapp ? (
 								<ChapterLink href={chapter.whatsapp} ariaLabel={t('aria.chapterWhatsapp', { city: chapter.city })}>
 									<BrandIcon iconPath={siWhatsapp.path} />

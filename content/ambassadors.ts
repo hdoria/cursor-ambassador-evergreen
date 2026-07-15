@@ -47,8 +47,18 @@ export const ambassadors: Ambassador[] = [
 		},
 	},
 	{
-		name: 'Marcelo Barella',
+		name: 'Guilherme Baldo Carlos',
 		role: 'Embaixador Cursor · Serra Gaúcha',
+		photo: '/images/ambassadors/guilherme-baldo.jpg',
+		links: {
+			instagram: 'https://instagram.com/bisbaldo',
+			linkedin: 'https://www.linkedin.com/in/guilhermebaldocarlos',
+			github: 'https://github.com/GuilhermeBaldo',
+		},
+	},
+	{
+		name: 'Marcelo Barella',
+		role: 'Embaixador Cursor · Serra Gaúcha e Porto Alegre',
 		photo: '/images/ambassadors/marcelo-barella.jpg',
 		links: {
 			instagram: 'https://instagram.com/_mbarella',

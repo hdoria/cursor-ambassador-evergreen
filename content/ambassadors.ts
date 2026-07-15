@@ -48,7 +48,7 @@ export const ambassadors: Ambassador[] = [
 	},
 	{
 		name: 'Marcelo Barella',
-		role: 'Embaixador Cursor · Passo Fundo',
+		role: 'Embaixador Cursor · Serra Gaúcha',
 		photo: '/images/ambassadors/marcelo-barella.jpg',
 		links: {
 			instagram: 'https://instagram.com/_mbarella',

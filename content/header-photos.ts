@@ -29,12 +29,11 @@ export const headerPhotoPool: BentoImage[] = [
 		alt: 'Camisetas do Cursor prontas para os participantes de um meetup em Aracaju',
 	},
 	{
-		src: '/images/events/aracaju-hero-08.jpg',
-		alt: 'Comunidade Cursor reunida no encontro de julho em Aracaju',
-		objectPosition: 'center 30%',
+		src: '/images/events/aracaju-hero-09.jpg',
+		alt: 'Embaixadores da comunidade Cursor no encontro de julho em Aracaju',
 	},
 	{
-		src: '/images/events/canela-hero-01.jpg',
-		alt: 'Plateia acompanhando o workshop da comunidade Cursor em Canela',
+		src: '/images/events/canela-hero-02.jpg',
+		alt: 'Palestrante no workshop da comunidade Cursor em Canela',
 	},
 ];

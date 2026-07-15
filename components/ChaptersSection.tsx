@@ -7,6 +7,9 @@ import { chapters } from '@/content/chapters';
 import { useI18n } from '@/lib/i18n';
 import { cardTile } from '@/components/ui';
 
+/** Bandeiras flat dos estados em /public/images/flags/{uf}.svg */
+const stateFlagSrc = (state: string) => `/images/flags/${state.toLowerCase()}.svg`;
+
 type BrandIconProps = {
 	iconPath: string;
 };
@@ -53,8 +56,18 @@ const ChaptersSection: React.FC = () => {
 
 			<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
 				{chapters.map((chapter) => (
-					<article key={chapter.slug} className={`${cardTile} p-5 group flex flex-col gap-4`}>
-						<header>
+					<article key={chapter.slug} className={`${cardTile} relative p-5 group flex flex-col gap-4`}>
+						{chapter.state ? (
+							<img
+								src={stateFlagSrc(chapter.state)}
+								alt=""
+								aria-hidden="true"
+								width={28}
+								height={19}
+								className="absolute top-3.5 right-3.5 w-7 h-auto rounded-[1px] opacity-90 ring-1 ring-cursor-border pointer-events-none"
+							/>
+						) : null}
+						<header className="pr-9">
 							<h3 className="text-cursor-text font-medium">{chapter.city}</h3>
 							{chapter.state ? (
 								<p className="text-cursor-text-muted text-xs uppercase tracking-wide">{chapter.state}</p>

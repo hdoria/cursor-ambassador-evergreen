@@ -68,55 +68,55 @@ const AmbassadorSection: React.FC = () => {
 				{[...ambassadors]
 					.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
 					.map((ambassador) => {
-					const links = [
-						{ kind: 'x' as const, href: ambassador.links.x },
-						{ kind: 'instagram' as const, href: ambassador.links.instagram },
-						{ kind: 'linkedin' as const, href: ambassador.links.linkedin },
-						{ kind: 'github' as const, href: ambassador.links.github },
-						{ kind: 'cursor' as const, href: ambassador.links.cursor },
-						{ kind: 'website' as const, href: ambassador.links.website },
-					].filter((entry) => Boolean(entry.href));
+						const links = [
+							{ kind: 'x' as const, href: ambassador.links.x },
+							{ kind: 'instagram' as const, href: ambassador.links.instagram },
+							{ kind: 'linkedin' as const, href: ambassador.links.linkedin },
+							{ kind: 'github' as const, href: ambassador.links.github },
+							{ kind: 'cursor' as const, href: ambassador.links.cursor },
+							{ kind: 'website' as const, href: ambassador.links.website },
+						].filter((entry) => Boolean(entry.href));
 
-					return (
-						<article key={ambassador.name} className={`${cardTile} p-5 group`}>
-							<div className="flex items-center gap-4">
-								<div className="relative w-20 h-20 shrink-0 rounded-full overflow-hidden border-2 border-cursor-border-emphasis">
-									{ambassador.photo ? (
-										<Image src={ambassador.photo} alt={ambassador.name} fill className="object-cover" sizes="80px" />
-									) : (
-										<span
-											aria-hidden="true"
-											className="flex h-full w-full items-center justify-center bg-cursor-surface text-lg text-cursor-text-muted"
-										>
-											{initialsOf(ambassador.name)}
-										</span>
-									)}
+						return (
+							<article key={ambassador.name} className={`${cardTile} p-5 group`}>
+								<div className="flex items-center gap-4">
+									<div className="relative w-20 h-20 shrink-0 rounded-full overflow-hidden border-2 border-cursor-border-emphasis">
+										{ambassador.photo ? (
+											<Image src={ambassador.photo} alt={ambassador.name} fill className="object-cover" sizes="80px" />
+										) : (
+											<span
+												aria-hidden="true"
+												className="flex h-full w-full items-center justify-center bg-cursor-surface text-lg text-cursor-text-muted"
+											>
+												{initialsOf(ambassador.name)}
+											</span>
+										)}
+									</div>
+									<div>
+										<p className="text-cursor-text font-medium">{ambassador.name}</p>
+										{ambassador.role ? <p className="text-cursor-text-muted text-sm">{ambassador.role}</p> : null}
+									</div>
 								</div>
-								<div>
-									<p className="text-cursor-text font-medium">{ambassador.name}</p>
-									{ambassador.role ? <p className="text-cursor-text-muted text-sm">{ambassador.role}</p> : null}
-								</div>
-							</div>
 
-							{links.length > 0 ? (
-								<div className="flex items-center gap-3 mt-4">
-									{links.map((link) => (
-										<a
-											key={`${ambassador.name}-${link.kind}`}
-											href={link.href}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="p-2 rounded border border-cursor-border text-cursor-text-muted hover:text-cursor-text hover:border-cursor-border-emphasis transition-colors"
-											aria-label={t('aria.socialLink', { name: ambassador.name, kind: link.kind })}
-										>
-											<SocialIcon kind={link.kind} />
-										</a>
-									))}
-								</div>
-							) : null}
-						</article>
-					);
-				})}
+								{links.length > 0 ? (
+									<div className="flex items-center gap-3 mt-4">
+										{links.map((link) => (
+											<a
+												key={`${ambassador.name}-${link.kind}`}
+												href={link.href}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="p-2 rounded border border-cursor-border text-cursor-text-muted hover:text-cursor-text hover:border-cursor-border-emphasis transition-colors"
+												aria-label={t('aria.socialLink', { name: ambassador.name, kind: link.kind })}
+											>
+												<SocialIcon kind={link.kind} />
+											</a>
+										))}
+									</div>
+								) : null}
+							</article>
+						);
+					})}
 			</div>
 		</section>
 	);

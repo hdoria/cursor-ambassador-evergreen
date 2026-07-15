@@ -58,73 +58,75 @@ const ChaptersSection: React.FC = () => {
 				{[...chapters]
 					.sort((a, b) => a.city.localeCompare(b.city, 'pt-BR'))
 					.map((chapter) => (
-					<article key={chapter.slug} className={`${cardTile} relative p-5 group flex flex-col gap-4`}>
-						{chapter.state ? (
-							<img
-								src={stateFlagSrc(chapter.state)}
-								alt=""
-								aria-hidden="true"
-								width={28}
-								height={19}
-								className="absolute top-3.5 right-3.5 w-7 h-auto rounded-[1px] opacity-90 ring-1 ring-cursor-border pointer-events-none"
-							/>
-						) : null}
-						<header className="pr-9">
-							<h3 className="text-cursor-text font-medium">{chapter.city}</h3>
+						<article key={chapter.slug} className={`${cardTile} relative p-5 group flex flex-col gap-4`}>
 							{chapter.state ? (
-								<p className="text-cursor-text-muted text-xs uppercase tracking-wide">{chapter.state}</p>
+								<img
+									src={stateFlagSrc(chapter.state)}
+									alt=""
+									aria-hidden="true"
+									width={28}
+									height={19}
+									className="absolute top-3.5 right-3.5 w-7 h-auto rounded-[1px] opacity-90 ring-1 ring-cursor-border pointer-events-none"
+								/>
 							) : null}
-						</header>
+							<header className="pr-9">
+								<h3 className="text-cursor-text font-medium">{chapter.city}</h3>
+								{chapter.state ? (
+									<p className="text-cursor-text-muted text-xs uppercase tracking-wide">{chapter.state}</p>
+								) : null}
+							</header>
 
-						<div>
-							{chapter.organizers.length > 0 ? <p className="cursor-eyebrow mb-1">{t('chapters.organizers')}</p> : null}
-							<ul className="text-sm text-cursor-text-secondary">
-								{[...chapter.organizers]
-									.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
-									.map((organizer) => (
-										<li key={organizer.name}>
-											{organizer.url ? (
-												<a
-													href={organizer.url}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="hover:text-cursor-text transition-colors"
-												>
-													{organizer.name}
-												</a>
-											) : (
-												organizer.name
-											)}
-										</li>
-									))}
-							</ul>
-						</div>
+							<div>
+								{chapter.organizers.length > 0 ? (
+									<p className="cursor-eyebrow mb-1">{t('chapters.organizers')}</p>
+								) : null}
+								<ul className="text-sm text-cursor-text-secondary">
+									{[...chapter.organizers]
+										.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
+										.map((organizer) => (
+											<li key={organizer.name}>
+												{organizer.url ? (
+													<a
+														href={organizer.url}
+														target="_blank"
+														rel="noopener noreferrer"
+														className="hover:text-cursor-text transition-colors"
+													>
+														{organizer.name}
+													</a>
+												) : (
+													organizer.name
+												)}
+											</li>
+										))}
+								</ul>
+							</div>
 
-						<div className="flex flex-wrap items-center gap-2 mt-auto pt-1">
-							<ChapterLink href={chapter.lumaUrl} ariaLabel={t('aria.chapterLuma', { city: chapter.city })}>
-								<Calendar className="w-4 h-4" aria-hidden="true" />
-								Luma
-							</ChapterLink>
-							{chapter.website ? (
-								<ChapterLink href={chapter.website} ariaLabel={t('aria.chapterWebsite', { city: chapter.city })}>
-									<Globe className="w-4 h-4" aria-hidden="true" />
-									Site
+							<div className="flex flex-wrap items-center gap-2 mt-auto pt-1">
+								<ChapterLink href={chapter.lumaUrl} ariaLabel={t('aria.chapterLuma', { city: chapter.city })}>
+									<Calendar className="w-4 h-4" aria-hidden="true" />
+									Luma
 								</ChapterLink>
-							) : null}
-							{chapter.whatsapp ? (
-								<ChapterLink href={chapter.whatsapp} ariaLabel={t('aria.chapterWhatsapp', { city: chapter.city })}>
-									<BrandIcon iconPath={siWhatsapp.path} />
-									WhatsApp
-								</ChapterLink>
-							) : null}
-							{chapter.instagram ? (
-								<ChapterLink href={chapter.instagram} ariaLabel={t('aria.chapterInstagram', { city: chapter.city })}>
-									<BrandIcon iconPath={siInstagram.path} />
-									Instagram
-								</ChapterLink>
-							) : null}
-						</div>
-					</article>
+								{chapter.website ? (
+									<ChapterLink href={chapter.website} ariaLabel={t('aria.chapterWebsite', { city: chapter.city })}>
+										<Globe className="w-4 h-4" aria-hidden="true" />
+										Site
+									</ChapterLink>
+								) : null}
+								{chapter.whatsapp ? (
+									<ChapterLink href={chapter.whatsapp} ariaLabel={t('aria.chapterWhatsapp', { city: chapter.city })}>
+										<BrandIcon iconPath={siWhatsapp.path} />
+										WhatsApp
+									</ChapterLink>
+								) : null}
+								{chapter.instagram ? (
+									<ChapterLink href={chapter.instagram} ariaLabel={t('aria.chapterInstagram', { city: chapter.city })}>
+										<BrandIcon iconPath={siInstagram.path} />
+										Instagram
+									</ChapterLink>
+								) : null}
+							</div>
+						</article>
 					))}
 			</div>
 		</section>

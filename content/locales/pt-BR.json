@@ -26,6 +26,8 @@
 		"communityTweetsLoadMore": "Carregar mais",
 		"communityTweetsBrowseX": "Ver no X",
 		"attendees": "{count} participantes",
+		"upcomingBucket": "Data a confirmar",
+		"lumaCalendarTitle": "Calendário de eventos de {name}",
 		"hostedBy": "Realizado por",
 		"viewRecap": "Ver recap",
 		"viewSlides": "Ver slides"
@@ -38,7 +40,22 @@
 	"aria": {
 		"chapterLuma": "Agenda do capítulo {city} no Luma",
 		"chapterWhatsapp": "WhatsApp do capítulo {city}",
-		"chapterInstagram": "Instagram do capítulo {city}"
+		"chapterInstagram": "Instagram do capítulo {city}",
+		"toggleMenu": "Abrir ou fechar o menu",
+		"expandPhoto": "Expandir foto",
+		"showPhotoGrid": "Mostrar grade de fotos",
+		"close": "Fechar",
+		"prevPhoto": "Foto anterior",
+		"nextPhoto": "Próxima foto",
+		"socialLink": "{name} no {kind}"
+	},
+	"tweets": {
+		"openOnX": "Abrir este post no X",
+		"viewOnX": "Ver no X"
+	},
+	"notFound": {
+		"body": "Essa página não existe.",
+		"back": "Voltar para {name}"
 	},
 	"ambassadors": {
 		"title": "Embaixadores {communityName}",
@@ -62,6 +79,7 @@
 		"highlights": "Feedback da comunidade",
 		"resources": "Recursos",
 		"by": "por",
+		"photoCredits": "Créditos das fotos:",
 		"galleryTitle": "Fotos",
 		"gallerySubtitle": "{count} fotos do evento",
 		"openPhoto": "Abrir foto {index}",

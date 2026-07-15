@@ -90,7 +90,7 @@ const AmbassadorSection: React.FC = () => {
 											target="_blank"
 											rel="noopener noreferrer"
 											className="p-2 rounded border border-cursor-border text-cursor-text-muted hover:text-cursor-text hover:border-cursor-border-emphasis transition-colors"
-											aria-label={`${ambassador.name} ${link.kind}`}
+											aria-label={t('aria.socialLink', { name: ambassador.name, kind: link.kind })}
 										>
 											<SocialIcon kind={link.kind} />
 										</a>

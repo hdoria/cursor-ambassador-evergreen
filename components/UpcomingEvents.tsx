@@ -17,7 +17,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
 		return null;
 	}
 
-	const groups = groupEventsByDate(events, locale);
+	const groups = groupEventsByDate(events, locale, t('home.upcomingBucket'));
 
 	return (
 		<section id="events" className="mb-20 scroll-mt-20">
@@ -47,7 +47,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
 									<div className="sm:pt-0.5">
 										{event.lumaUrl ? (
 											<TextLink href={event.lumaUrl} external>
-												RSVP
+												{t('home.register')}
 											</TextLink>
 										) : (
 											<Badge variant="neutral">{t('home.comingSoon')}</Badge>

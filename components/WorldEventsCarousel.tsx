@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Image from 'next/image';
 import { worldEventPhotos } from '@/content/world-events';
+import { useI18n } from '@/lib/i18n';
 
 const WorldEventsCarousel: React.FC = () => {
+	const { t } = useI18n();
 	const photos = worldEventPhotos;
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isFullscreen, setIsFullscreen] = useState(false);
@@ -63,7 +65,7 @@ const WorldEventsCarousel: React.FC = () => {
 							<button
 								onClick={() => setIsFullscreen(false)}
 								className="absolute top-4 right-4 z-10 rounded-full border border-cursor-border bg-cursor-bg/80 p-2 text-cursor-text transition-colors hover:bg-cursor-bg"
-								aria-label="Close"
+								aria-label={t('aria.close')}
 							>
 								<X className="w-5 h-5" />
 							</button>
@@ -93,14 +95,14 @@ const WorldEventsCarousel: React.FC = () => {
 									<button
 										onClick={() => setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length)}
 										className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-cursor-border bg-cursor-bg/80 p-2 text-cursor-text transition-colors hover:bg-cursor-bg"
-										aria-label="Previous photo"
+										aria-label={t('aria.prevPhoto')}
 									>
 										<ChevronLeft className="w-6 h-6" />
 									</button>
 									<button
 										onClick={() => setCurrentIndex((prev) => (prev + 1) % photos.length)}
 										className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-cursor-border bg-cursor-bg/80 p-2 text-cursor-text transition-colors hover:bg-cursor-bg"
-										aria-label="Next photo"
+										aria-label={t('aria.nextPhoto')}
 									>
 										<ChevronRight className="w-6 h-6" />
 									</button>

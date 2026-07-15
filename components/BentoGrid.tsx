@@ -5,6 +5,7 @@ import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import Image from 'next/image';
 import { isPriorityPhoto } from '@/lib/bento-assign';
 import { HeaderPhoto } from '@/lib/types';
+import { useI18n } from '@/lib/i18n';
 
 type BentoGridProps = {
 	desktopPhotos: HeaderPhoto[];
@@ -66,6 +67,7 @@ function BentoTile({
 	reducedMotion: boolean;
 	buttonRef: (node: HTMLButtonElement | null) => void;
 }) {
+	const { t } = useI18n();
 	const expandable = Boolean(photo.src);
 
 	return (
@@ -94,7 +96,7 @@ function BentoTile({
 				type="button"
 				disabled={!expandable || isExpanded}
 				onClick={() => onExpand(variant, tileIndex)}
-				aria-label="Expand photo"
+				aria-label={t('aria.expandPhoto')}
 				aria-expanded={isExpanded}
 				className={`relative block h-full w-full appearance-none border-0 bg-transparent p-0 text-left ${
 					expandable && !isExpanded
@@ -130,6 +132,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
 	mobileRows = 4,
 	gapClassName = 'gap-1',
 }) => {
+	const { t } = useI18n();
 	const [expanded, setExpanded] = useState<ExpandedTile | null>(null);
 	const [reducedMotion, setReducedMotion] = useState(false);
 	const tileButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -239,7 +242,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({
 						exit={{ opacity: reducedMotion ? 1 : 0 }}
 						transition={{ duration: reducedMotion ? 0 : 0.2 }}
 						onClick={handleCollapse}
-						aria-label="Show photo grid"
+						aria-label={t('aria.showPhotoGrid')}
 						className="absolute inset-0 z-30 cursor-pointer appearance-none border-0 bg-cursor-bg-dark p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-cursor-accent-orange/60"
 					>
 						<motion.div

@@ -26,6 +26,8 @@
 		"communityTweetsLoadMore": "Load more",
 		"communityTweetsBrowseX": "Browse on X",
 		"attendees": "{count} attendees",
+		"upcomingBucket": "Upcoming",
+		"lumaCalendarTitle": "{name} upcoming events calendar",
 		"hostedBy": "Hosted by",
 		"viewRecap": "View recap",
 		"viewSlides": "View slides"
@@ -38,7 +40,22 @@
 	"aria": {
 		"chapterLuma": "{city} chapter calendar on Luma",
 		"chapterWhatsapp": "{city} chapter WhatsApp",
-		"chapterInstagram": "{city} chapter Instagram"
+		"chapterInstagram": "{city} chapter Instagram",
+		"toggleMenu": "Toggle menu",
+		"expandPhoto": "Expand photo",
+		"showPhotoGrid": "Show photo grid",
+		"close": "Close",
+		"prevPhoto": "Previous photo",
+		"nextPhoto": "Next photo",
+		"socialLink": "{name} on {kind}"
+	},
+	"tweets": {
+		"openOnX": "Open this post on X",
+		"viewOnX": "View on X"
+	},
+	"notFound": {
+		"body": "This page doesn't exist.",
+		"back": "Back to {name}"
 	},
 	"ambassadors": {
 		"title": "{communityName} ambassadors",
@@ -62,6 +79,7 @@
 		"highlights": "Community feedback",
 		"resources": "Resources",
 		"by": "by",
+		"photoCredits": "Photo credits:",
 		"galleryTitle": "Photos",
 		"gallerySubtitle": "{count} photos from the event",
 		"openPhoto": "Open photo {index}",

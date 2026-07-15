@@ -171,7 +171,7 @@ const EventRecap: React.FC<EventRecapProps> = ({ recap }) => {
 
 				{recap.photoCredits && recap.photoCredits.length > 0 ? (
 					<div className="border-t border-cursor-border mt-6 pt-6 text-sm text-cursor-text-muted">
-						<span className="mr-1">Photo credits:</span>
+						<span className="mr-1">{t('recap.photoCredits')}</span>
 						{recap.photoCredits.map((credit, index) => (
 							<span key={`${credit.name}-${index}`}>
 								{credit.url ? (

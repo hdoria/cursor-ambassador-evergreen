@@ -28,7 +28,7 @@ const LumaCalendarSection: React.FC<LumaCalendarSectionProps> = ({ className, he
 					loading="lazy"
 					allowFullScreen
 					tabIndex={0}
-					title={`${siteConfig.communityName} — upcoming events calendar`}
+					title={t('home.lumaCalendarTitle', { name: siteConfig.communityName })}
 					className="block w-full"
 				/>
 			</div>

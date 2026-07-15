@@ -127,7 +127,7 @@ export default function Navbar({ joinHref = siteConfig.lumaUrl }: NavbarProps) {
 							<button
 								onClick={() => setMobileOpen(!mobileOpen)}
 								className="flex h-8 w-8 items-center justify-center rounded-full text-cursor-text-muted transition-colors duration-150 hover:bg-cursor-surface hover:text-cursor-text"
-								aria-label="Toggle menu"
+								aria-label={t('aria.toggleMenu')}
 								aria-expanded={mobileOpen}
 							>
 								{mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}

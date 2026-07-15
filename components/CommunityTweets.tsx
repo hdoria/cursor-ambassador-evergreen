@@ -15,6 +15,8 @@ import {
 } from '@/content/community-tweets';
 
 function TweetFallbackLink({ url, note }: { url: string; note?: string }) {
+	const { t } = useI18n();
+
 	return (
 		<a
 			href={url}
@@ -22,9 +24,9 @@ function TweetFallbackLink({ url, note }: { url: string; note?: string }) {
 			rel="noopener noreferrer"
 			className="flex min-h-[120px] flex-col justify-between gap-3 rounded-sm border border-cursor-border bg-cursor-surface p-4 text-sm text-cursor-text-secondary transition-colors hover:border-cursor-border-emphasis hover:text-cursor-text"
 		>
-			<span className="line-clamp-3">{note ?? 'Open this post on X'}</span>
+			<span className="line-clamp-3">{note ?? t('tweets.openOnX')}</span>
 			<span className="inline-flex items-center gap-1.5 text-xs text-cursor-text-muted">
-				View on X
+				{t('tweets.viewOnX')}
 				<ExternalLink className="h-3 w-3 opacity-60" />
 			</span>
 		</a>

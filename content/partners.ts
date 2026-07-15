@@ -1,5 +1,11 @@
 import { Partner } from '@/lib/types';
 
-// Parceiros e anfitrioes nacionais entram aqui (nome, logo SVG local, url).
-// Com o array vazio a secao de parceiros nao aparece no rodape.
-export const partners: Partner[] = [];
+// Parceiros e anfitrioes nacionais (nome, logo SVG local, url).
+export const partners: Partner[] = [
+	{
+		name: 'Popcode',
+		logo: '/images/partners/popcode.svg',
+		url: 'https://www.popcode.com.br',
+		logoBg: '#ffffff',
+	},
+];

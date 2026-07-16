@@ -15,6 +15,17 @@ export const ambassadors: Ambassador[] = [
 		},
 	},
 	{
+		name: 'Alexandre Ferrari',
+		role: 'Embaixador Cursor · Florianópolis',
+		photo: '/images/ambassadors/alexandre-ferrari.jpg',
+		links: {
+			x: 'https://x.com/aferrari',
+			instagram: 'https://instagram.com/aferrari_',
+			linkedin: 'https://linkedin.com/in/alexandreferrari',
+			website: 'https://aferrari.info',
+		},
+	},
+	{
 		name: 'Benjamin Bauer',
 		role: 'Embaixador Cursor · Salvador',
 		photo: '/images/ambassadors/benjamin-bauer.jpg',

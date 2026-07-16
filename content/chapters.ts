@@ -33,7 +33,7 @@ export const chapters: Chapter[] = [
 		slug: 'florianopolis',
 		city: 'Florianópolis',
 		state: 'SC',
-		organizers: [{ name: 'Alex Ferrari' }, { name: 'Christian Rios' }],
+		organizers: [{ name: 'Alexandre Ferrari' }, { name: 'Christian Rios' }],
 		lumaCalendarId: 'cal-AReTBF17bCY9Kr5',
 		lumaUrl: 'https://luma.com/cursor-florianpolis',
 	},
